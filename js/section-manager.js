@@ -80,16 +80,67 @@ export class SectionManager {
             titleElement.textContent = this.configManager.getSectionTitle('projects');
         }
         
+        // --- Domain Chips ---
+        const domainChipsContainer = projectsSection.querySelector('.project-domain-chips');
+        const domains = ["Development", "Data Engineering", "Scripting", "Automation"];
+        
+        // If not already rendered
+        if (domainChipsContainer && domainChipsContainer.childElementCount === 0) {
+            domains.forEach(domain => {
+                const chip = document.createElement('button');
+                chip.className = 'project-domain-chip';
+                chip.textContent = domain;
+                chip.setAttribute('type', 'button');
+                chip.setAttribute('aria-pressed', 'false');
+                chip.addEventListener('click', () => {
+                    chip.classList.toggle('selected');
+                    chip.setAttribute('aria-pressed', chip.classList.contains('selected'));
+                    this.filterProjectsByDomain(config, domains.filter(d => {
+                        const c = Array.from(domainChipsContainer.children).find(x => x.textContent === d);
+                        return c && c.classList.contains('selected');
+                    }));
+                });
+                domainChipsContainer.appendChild(chip);
+            });
+        }
+
         // Clear existing project items
         const existingProjectItems = projectsSection.querySelectorAll('.project-item');
         existingProjectItems.forEach(item => item.remove());
         
-        // Create document fragment
+        // Create document fragment and render all projects (default state)
         const fragment = document.createDocumentFragment();
+        this.renderProjects(config.projects?.items || [], fragment);
+        projectsSection.appendChild(fragment);
+    }
+
+    // Filter and render projects by selected domain(s)
+    filterProjectsByDomain(config, selectedDomains) {
+        const projectsSection = document.querySelector('.projects');
+        const existingProjectItems = projectsSection.querySelectorAll('.project-item');
+        existingProjectItems.forEach(item => item.remove());
         
-        // Add all project items to fragment
-        if (config.projects?.items?.length) {
-            config.projects.items.forEach(project => {
+        const fragment = document.createDocumentFragment();
+        let filtered = (config.projects?.items || []);
+        
+        if (selectedDomains.length > 0) {
+            filtered = filtered.filter(project => {
+                // If project.domain matches any selected domain
+                if (Array.isArray(project.domain)) {
+                    return project.domain.some(d => selectedDomains.includes(d));
+                }
+                return selectedDomains.includes(project.domain);
+            });
+        }
+        
+        this.renderProjects(filtered, fragment);
+        projectsSection.appendChild(fragment);
+    }
+
+    // Render projects helper
+    renderProjects(projects, fragment) {
+        if (projects.length) {
+            projects.forEach(project => {
                 const projectItem = this.createProjectItem(project);
                 fragment.appendChild(projectItem);
             });
@@ -99,20 +150,16 @@ export class SectionManager {
             emptyState.className = 'project-item';
             emptyState.innerHTML = `
                 <div class="project-content">
-                    <h3>Your Projects Will Appear Here</h3>
-                    <p class="date">Coming Soon</p>
+                    <h3>No matching projects found</h3>
+                    <p class="date">Try selecting different domains</p>
                     <ul>
-                        <li>Add your projects to the config.json file</li>
-                        <li>Include project descriptions and images</li>
-                        <li>Showcase your best work</li>
+                        <li>Projects will appear here when they match the selected domains</li>
+                        <li>Clear all domain filters to see all projects</li>
                     </ul>
                 </div>
             `;
             fragment.appendChild(emptyState);
         }
-        
-        // Append all projects at once for better performance
-        projectsSection.appendChild(fragment);
     }
 
     // Create individual project item

@@ -36,7 +36,14 @@ class PortfolioApp {
             this.headerManager.updateHeaderSection(config);
 
             // Update page content from config
-            this.sectionManager.updatePageContent(config);
+                this.sectionManager.updatePageContent(config);
+                // Ensure domain chips are interactive after initial render
+                setTimeout(() => {
+                    const chips = document.querySelectorAll('.project-domain-chip');
+                    if (chips.length) {
+                        chips.forEach(chip => chip.classList.remove('selected'));
+                    }
+                }, 0);
 
             // Update footer section
             this.footerManager.updateFooterSection(config);

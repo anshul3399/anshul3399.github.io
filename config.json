@@ -53,7 +53,8 @@
         "link": {
           "url": "https://anshul3399.github.io",
           "title": "View Live Site"
-        }
+        },
+        "domain": ["Development", "Automation"]
       },
       {
         "name": "MusikQ App",
@@ -68,7 +69,8 @@
         "link": {
           "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
           "title": "View Demo Video"
-        }
+        },
+        "domain": ["Scripting", "Development"]
       }
     ]
   },
