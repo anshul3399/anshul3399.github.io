@@ -7,11 +7,11 @@
     "github_projects": true
   },
   "site": {
-    "title": "anshul3399",
+    "title": "Anshul Sharma",
     "description": "Developer Portfolio",
     "seo": {
-      "title": "anshul3399 - Developer Portfolio",
-      "description": "Developer Portfolio of anshul3399",
+      "title": "Anshul Sharma - Developer Portfolio",
+      "description": "Developer Portfolio of Anshul Sharma",
       "keywords": "developer, portfolio, github",
       "author": "anshul3399",
       "og_image": "https://avatars.githubusercontent.com/anshul3399",
@@ -21,7 +21,7 @@
   },
   "header": {
     "greeting": "anshul3399",
-    "tagline": "Developer and Creator."
+    "tagline": "Developer ."
   },
   "social_links": [
     {
@@ -54,6 +54,21 @@
           "url": "https://anshul3399.github.io",
           "title": "View Live Site"
         }
+      },
+      {
+        "name": "MusikQ App",
+        "date": "Jan 13, 2025",
+        "description": [
+          "A Flutter app for managing and filtering music playlist.",
+          "Features vibrant theme, smooth animations, and a user-friendly interface",
+          "Powered by Google's Youtube Music API for fetching songs",
+          "Includes a demo video showcasing the app's functionality"
+        ],
+        "picture": "assets/projects/MusikQ App/SongsList_Screen.jpg",
+        "link": {
+          "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
+          "title": "View Demo Video"
+        }
       }
     ]
   },
@@ -61,17 +76,17 @@
     "title": "Professional Experience",
     "jobs": [
       {
-        "company": "Your Company Name",
-        "role": "Your Job Title",
-        "date": "Start Date - Present",
+        "company": "Oracle Financial Services Software Ltd.",
+        "role": "Associate Consultant",
+        "date": "June, 2023 - Present",
         "responsibilities": [
           "Add your key responsibilities and achievements here",
           "Include specific technologies you worked with",
           "Mention any notable projects or impact metrics",
           "Update this section with your actual work experience"
         ],
-        "logo": "assets/logos/Placeholder_Logo.png",
-        "logo_dark": "assets/logos/Placeholder_Logo.png"
+        "logo": "assets/logos/Oracle_Logo.png",
+        "logo_dark": "assets/logos/Oracle_Logo.png"
       }
     ]
   },
@@ -92,6 +107,9 @@
         "items": [
           "Git",
           "GitHub",
+          "Flutter",
+          "Firebase",
+          "Google Colab",
           "VS Code",
           "Docker"
         ]
@@ -100,8 +118,8 @@
         "name": "Certifications",
         "items": [
           {
-            "name": "Add your certification name here",
-            "url": "https://example.com/your-certification-link"
+            "name": "Data Engineering Essentials: IBM",
+            "url": "https://www.credly.com/badges/7cf7e3c9-c1eb-4f7d-8606-f01c21d9c509/public_url"
           },
           "You can also add certifications without links"
         ]
@@ -113,7 +131,7 @@
   },
   "footer": {
     "show_social_links": true,
-    "show_built_with": true,
+    "show_built_with": false,
     "built_with_text": "Built with ❤️ using vanilla JavaScript",
     "tagline": "Let's connect and build something amazing together!"
   }
