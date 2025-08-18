@@ -82,7 +82,7 @@ export class SectionManager {
         
         // --- Domain Chips ---
         const domainChipsContainer = projectsSection.querySelector('.project-domain-chips');
-        const domains = ["Development", "Data Engineering", "Scripting", "Automation"];
+        const domains = ["Development", "Digital Enablement for Local Businesses","Data Engineering", "Scripting", "Automation"];
         
         // If not already rendered
         if (domainChipsContainer && domainChipsContainer.childElementCount === 0) {

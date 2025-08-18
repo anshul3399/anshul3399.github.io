@@ -43,13 +43,13 @@
     "items": [
       {
         "name": "Portfolio Website",
-        "date": "August 13, 2025",
+        "date": "August, 2025",
         "description": [
           "A modern, responsive portfolio website built with vanilla JavaScript",
           "Features dark/light mode, dynamic content loading, and GitHub integration",
           "Fully configurable through JSON with automated README generation"
         ],
-        "picture": "assets/projects/app_icon.png",
+        "picture": "assets/projects/portfolio_website/portfolio_website_icon.png",
         "link": {
           "url": "https://anshul3399.github.io",
           "title": "View Live Site"
@@ -57,8 +57,40 @@
         "domain": ["Development", "Automation"]
       },
       {
+        "name": "Sanjeevni Pharmacy App",
+        "date": "February, 2022",
+        "description": [
+          "This application was developed to support a local pharmacy business by simplifying patient and medicine data management.",
+          "It is a cross-platform solution, built using AppSheet with Google Sheets as the database backend.",
+          "The app enables the pharmacy store operator to efficiently record, access, and manage information about visiting patients and their prescribed medicines.",
+          "By providing quick, on-demand access to patient data, the application streamlines day-to-day operations, reduces manual effort, and enhances overall customer experience through faster and more reliable service."
+        ],
+        "picture": "assets/projects/Sanjeevani_Pharmacy_App/pharmacy_app_icon.png",
+        "link": {
+          "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
+          "title": "View Demo Video"
+        },
+        "domain": ["Digital Enablement for Local Businesses"]
+      },
+      {
+        "name": "Narayan Udyog Inventory Management App",
+        "date": "November, 2023",
+        "description": [
+          "The application was designed to support a local Poultry retail business by simplifying and digitizing their inventory management process.",
+          "Built as a cross-platform application using AppSheet with Google Sheets as the database backend, it enables the store to efficiently track stock levels, manage product categories, and monitor sales.",
+          "The app empowers store operators to access real-time inventory data on demand, reduce manual errors, and streamline day-to-day operations.",
+          "By automating inventory handling, the application helps improve decision-making, prevents stockouts or overstocking, and ultimately enhances overall customer satisfaction."
+        ],
+        "picture":"assets/projects/NarayanUdyog_App/NarayanUdyog_App.png",
+        "link": {
+          "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
+          "title": "View Demo Video"
+        },
+        "domain": ["Digital Enablement for Local Businesses"]
+      },
+      {
         "name": "MusikQ App",
-        "date": "Jan 13, 2025",
+        "date": "January, 2025",
         "description": [
           "A Flutter app for managing and filtering music playlist.",
           "Features vibrant theme, smooth animations, and a user-friendly interface",
