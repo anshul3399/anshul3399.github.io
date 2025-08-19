@@ -70,22 +70,55 @@
 }
 
 /* Certification item styling */
-.skill-category li.certification-item a {
-    display: inline-flex;
-    align-items: center;
-    color: var(--chip-text);
-    text-decoration: none;
-    width: 100%;
+.skill-category li.certification-item {
+    padding: 0.5rem;
+    height: auto;
+    min-height: auto;
+    background: none;
+    box-shadow: none;
 }
 
+.skill-category li.certification-item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.2s ease;
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius);
+    background-color: var(--card-background-darker);
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.skill-category li.certification-item a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--chip-hover-background);
+}
+
+.skill-category li.certification-item img,
 .skill-category li.certification-item svg {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
     flex-shrink: 0;
 }
 
-/* Ensure all skill items have consistent height */
-.skill-category li {
-    height: 38px;
-    min-height: 38px;
+.skill-category li.certification-item img {
+    object-fit: contain;
+}
+
+.skill-category li.certification-item svg {
+    color: var(--accent-color);
+}
+
+.skill-category li.certification-item span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Improve card layout */
@@ -103,22 +136,41 @@
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
-    padding-right: 6px;
+    padding-right: 4px;
+    margin-right: 2px;
 }
 
 /* Webkit scrollbar styling */
 .skill-category ul::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
 }
 
 .skill-category ul::-webkit-scrollbar-track {
     background: var(--scrollbar-track);
-    border-radius: 3px;
 }
 
 .skill-category ul::-webkit-scrollbar-thumb {
     background-color: var(--scrollbar-thumb);
-    border-radius: 3px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hide scrollbar when not hovering */
+.skill-category ul {
+    scrollbar-width: none;
+}
+
+.skill-category ul::-webkit-scrollbar {
+    display: none;
+}
+
+/* Show scrollbar only on hover */
+.skill-category:hover ul {
+    scrollbar-width: thin;
+}
+
+.skill-category:hover ul::-webkit-scrollbar {
+    display: block;
 }
 
 .skill-category h3 {

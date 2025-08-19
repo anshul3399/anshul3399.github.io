@@ -20,14 +20,20 @@
     }
   },
   "header": {
-    "greeting": "anshul3399",
-    "tagline": "Developer ."
+    "greeting": "Anshul Sharma",
+    "tagline": "Developer"
   },
   "social_links": [
     {
       "name": "GitHub",
       "url": "https://github.com/anshul3399",
       "icon": "github",
+      "required": true
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/anshul3399",
+      "icon": "linkedin",
       "required": true
     }
   ],
@@ -50,6 +56,11 @@
           "Fully configurable through JSON with automated README generation"
         ],
         "picture": "assets/projects/portfolio_website/portfolio_website_icon.png",
+        "images": [
+          "assets/projects/portfolio_website/screenshot1.png",
+          "assets/projects/portfolio_website/screenshot2.png",
+          "assets/projects/portfolio_website/screenshot3.png"
+        ],
         "link": {
           "url": "https://anshul3399.github.io",
           "title": "View Live Site"
@@ -98,11 +109,41 @@
           "Includes a demo video showcasing the app's functionality"
         ],
         "picture": "assets/projects/MusikQ App/gramophone_resized.png",
+        "images": [
+          "assets/projects/MusikQ App/SongsList_Screen.jpg",
+          "assets/projects/MusikQ App/Filter_Screen.jpg",
+          "assets/projects/MusikQ App/FilterApplication.jpg",
+          "assets/projects/MusikQ App/PinView_Screen.jpg"
+        ],
         "link": {
           "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
           "title": "View Demo Video"
         },
         "domain": ["Scripting", "Development"]
+      },
+       {
+        "name": "Stock Screening & Portfolio Management Scripts",
+        "date": "May, 2023",
+        "description": [
+          "AppScripts for Google Sheets to automate stock screening and portfolio management",
+          "Includes features for fetching stock data, calculating financial ratios, and generating reports",
+          "Designed to help investors make informed decisions based on real-time data",
+          "Utilizes Google Finance API for live stock data retrieval",
+          "Provides a user-friendly interface for managing and analyzing stock portfolios"
+        ],
+        "picture": "assets/projects/StockScreeningPFMngnmnt_Scripts/StockScreening_PortfolioManagement_logo.svg",
+        "images": [
+          "assets/projects/StockScreeningPFMngnmnt_Scripts/StockScreening_1.png",
+          "assets/projects/StockScreeningPFMngnmnt_Scripts/StockScreening_2.png",
+          "assets/projects/StockScreeningPFMngnmnt_Scripts/StockScreening_3.png",
+          "assets/projects/StockScreeningPFMngnmnt_Scripts/StockScreening_4.png",
+          "assets/projects/StockScreeningPFMngnmnt_Scripts/StockScreening_5.png"
+        ],
+        "link": {
+          "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
+          "title": "View Demo Video"
+        },
+        "domain": ["Scripting"]
       }
     ]
   },
@@ -142,6 +183,10 @@
             "name": "SQL",
             "logo": "assets/logos/languages/sql.svg"
           },
+        {
+            "name": "NoSQL",
+            "logo": "assets/logos/languages/nosql.svg"
+          },
           {
             "name": "TypeScript",
             "logo": "assets/logos/languages/typescript.svg"
@@ -164,8 +209,12 @@
             "logo": "assets/logos/tools/flutter.svg"
           },
           {
-            "name": "AppSheet",
-            "logo": "assets/logos/tools/appsheet.png"
+            "name": "Docker",
+            "logo": "assets/logos/tools/docker.svg"
+          },
+          {
+            "name": "Kubernetes",
+            "logo": "assets/logos/tools/kubernetes.svg"
           },
           {
             "name": "Airflow",
@@ -173,20 +222,29 @@
           },
           {
             "name": "Apache Spark",
-            "logo": "assets/logos/tools/spark.svg"
+            "logo": "assets/logos/tools/apache_spark.svg"
+          },
+          {
+            "name": "MongoDB",
+            "logo": "assets/logos/tools/mongodb.svg"
+          },
+          {
+            "name": "Cognos Analytics",
+            "logo": "assets/logos/tools/cognos-analytics.svg"
           },
           {
             "name": "Google Colab",
             "logo": "assets/logos/tools/colab.png"
           },
+           {
+            "name": "AppSheet",
+            "logo": "assets/logos/tools/appsheet.png"
+          },
           {
             "name": "VS Code",
             "logo": "assets/logos/tools/vscode.svg"
           },
-          {
-            "name": "Docker",
-            "logo": "assets/logos/tools/docker.svg"
-          },
+          
           {
             "name": "Postman",
             "logo": "assets/logos/tools/postman.svg"
@@ -210,21 +268,33 @@
           {
             "name": "Oracle Cloud",
             "logo": "assets/logos/tools/oracle-cloud.svg"
-          },
-          {
-            "name": "Kubernetes",
-            "logo": "assets/logos/tools/kubernetes.svg"
           }
+         
         ]
       },
       {
-        "name": "Certifications",
+        "name": "Certifications & Publications",
         "items": [
           {
             "name": "Data Engineering Essentials: IBM",
-            "url": "https://www.credly.com/badges/7cf7e3c9-c1eb-4f7d-8606-f01c21d9c509/public_url"
+            "url": "https://www.credly.com/badges/7cf7e3c9-c1eb-4f7d-8606-f01c21d9c509/public_url",
+            "logo": "assets/logos/certifications/ibm-logo.svg"
           },
-          "You can also add certifications without links"
+          {
+            "name": "Microsoft Azure Fundamentals - AZ900",
+            "url": "https://www.credly.com/badges/7cf7e3c9-c1eb-4f7d-8606-f01c21d9c509/public_url",
+            "logo": "assets/logos/certifications/microsoft-logo.svg"
+          },
+          {
+            "name": "Oracle Cloud Infrastructure Foundations",
+            "url": "https://www.credly.com/badges/7cf7e3c9-c1eb-4f7d-8606-f01c21d9c509/public_url",
+            "logo": "assets/logos/certifications/oracle-logo.svg"
+          },
+          {
+            "name": "ICICA Conference Publication 2022",
+            "url": "https://www.researchgate.net/publication/363860461_2nd_International_Conference_on_Innovative_Computing_and_Applications_ICICA%2722_Virtual_mode_at_Shri_Ramdeobaba_College_of_Engineering_and_Management_Nagpur_Proceedings_to_be_published_in_IJNGC_ESCI",
+            "logo": "assets/logos/certifications/ICICA-logo.svg"
+          }
         ]
       }
     ]

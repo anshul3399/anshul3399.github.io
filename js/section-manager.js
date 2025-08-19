@@ -170,47 +170,90 @@ export class SectionManager {
         const descriptionHtml = Array.isArray(project.description) 
             ? project.description.map(desc => `<li>${desc}</li>`).join('')
             : `<li>${project.description}</li>`;
+            
+        // Get project images (assuming they're in an images array in the project object)
+        const projectImages = project.images || [project.picture];
+        const carouselSlidesHtml = projectImages
+            .map((img, index) => `
+                <div class="carousel-slide">
+                    <img src="${img}" alt="${project.name} screenshot ${index + 1}" loading="lazy">
+                </div>
+            `).join('');
         
         projectItem.innerHTML = `
-            <div class="project-header">
-                <div class="project-header-content">
-                    <h3>${project.name}</h3>
-                    ${project.date ? `<p class="date">${project.date}</p>` : ''}
-                </div>
-                <div class="project-accordion-toggle">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="6,9 12,15 18,9"></polyline>
-                    </svg>
+            <div class="project-top">
+                <div class="project-content">
+                    <div class="project-info">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-title">${project.name}</h3>
+                                ${project.date ? `<div class="project-date">${project.date}</div>` : ''}
+                            </div>
+                        </div>
+                        <ul class="project-description">
+                            ${descriptionHtml}
+                        </ul>
+                    </div>
+                    <div class="project-actions">
+                        ${project.link ? `
+                            <a href="${typeof project.link === 'object' ? project.link.url : project.link}" 
+                               target="_blank" rel="noopener noreferrer" 
+                               aria-label="View ${project.name} project"
+                               class="project-link">
+                                ${typeof project.link === 'object' ? (project.link.title || 'View Project') : 'View Project'}
+                            </a>
+                        ` : ''}
+                        ${project.images && project.images.length > 0 ? `
+                            <button class="carousel-toggle" aria-label="Toggle project images">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        ` : ''}
+                    </div>
                 </div>
             </div>
-            <div class="project-content">
-                <div class="project-content-desktop">
-                    <h3>${project.name}</h3>
-                    ${project.date ? `<p class="date">${project.date}</p>` : ''}
+            ${project.images && project.images.length > 0 ? `
+                <div class="project-carousel">
+                    <div class="carousel-container">
+                        ${project.images.map(image => `
+                            <div class="carousel-slide">
+                                <img src="${image}" alt="${project.name} screenshot" loading="lazy">
+                            </div>
+                        `).join('')}
+                    </div>
+                    ${project.images.length > 1 ? `
+                        <button class="carousel-arrow carousel-prev" aria-label="Previous image">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <button class="carousel-arrow carousel-next" aria-label="Next image">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                        <div class="carousel-nav">
+                            ${project.images.map((_, index) => `
+                                <div class="carousel-dot${index === 0 ? ' active' : ''}" data-index="${index}"></div>
+                            `).join('')}
+                        </div>
+                    ` : ''}
                 </div>
-                <ul>
-                    ${descriptionHtml}
-                </ul>
-                ${project.link ? `
-                <div class="project-links">
-                    <a href="${typeof project.link === 'object' ? project.link.url : project.link}" target="_blank" rel="noopener noreferrer" aria-label="View ${project.name} project">
-                        ${typeof project.link === 'object' ? (project.link.title || 'View Project') : 'View Project'}
-                    </a>
-                </div>
-                ` : ''}
-            </div>
-            ${project.picture ? `
-            <div class="project-image">
-                <img src="${project.picture}" alt="${project.name} project screenshot" loading="lazy">
-            </div>
             ` : ''}
+            </div>
         `;
         
-        // Add click event listener for accordion functionality on mobile
-        const header = projectItem.querySelector('.project-header');
-        header.addEventListener('click', () => {
-            this.toggleProjectAccordion(projectItem);
-        });
+        // Setup carousel toggle functionality
+        const toggleBtn = projectItem.querySelector('.carousel-toggle');
+        const carousel = projectItem.querySelector('.project-carousel');
+        
+        if (toggleBtn && carousel) {
+            toggleBtn.addEventListener('click', () => {
+                carousel.classList.toggle('active');
+                toggleBtn.classList.toggle('active');
+            });
+        }
         
         return projectItem;
     }
@@ -373,12 +416,14 @@ export class SectionManager {
                             <span>${item.name}</span>
                         </li>`;
                     } else if (item.name && item.url) {
-                        // Certification with link
+                        // Certification with link and possibly a logo
                         return `<li class="certification-item">
                             <a href="${item.url}" target="_blank" rel="noopener noreferrer">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" style="margin-right: 6px;">
-                                    <path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
+                                ${item.logo ? `<img src="${item.logo}" alt="${item.name} logo" loading="lazy">` : `
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                `}
                                 <span>${item.name}</span>
                             </a>
                         </li>`;

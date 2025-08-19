@@ -7,6 +7,7 @@ import { SectionManager } from './section-manager.js';
 import { HeaderManager } from './header-manager.js';
 import { GitHubProjectsManager } from './github-projects-manager.js';
 import { FooterManager } from './footer-manager.js';
+import { CarouselManager } from './carousel-manager.js';
 
 class PortfolioApp {
     constructor() {
@@ -37,6 +38,11 @@ class PortfolioApp {
 
             // Update page content from config
                 this.sectionManager.updatePageContent(config);
+                
+                // Initialize carousels
+                const carousels = document.querySelectorAll('.project-carousel');
+                carousels.forEach(carousel => new CarouselManager(carousel));
+                
                 // Ensure domain chips are interactive after initial render
                 setTimeout(() => {
                     const chips = document.querySelectorAll('.project-domain-chip');
