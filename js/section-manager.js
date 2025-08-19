@@ -365,18 +365,36 @@ export class SectionManager {
         
         const itemsHtml = Array.isArray(category.items)
             ? category.items.map(item => {
-                // Check if item is an object with name and url properties (certification link)
-                if (typeof item === 'object' && item.name && item.url) {
-                    return `<li><a href="${item.url}" target="_blank" rel="noopener noreferrer">${item.name}</a></li>`;
-                } else {
-                    return `<li>${item}</li>`;
+                if (typeof item === 'object') {
+                    if (item.name && item.logo) {
+                        // Item with logo (Tools or Languages)
+                        return `<li>
+                            <img src="${item.logo}" alt="${item.name} logo" loading="lazy">
+                            <span>${item.name}</span>
+                        </li>`;
+                    } else if (item.name && item.url) {
+                        // Certification with link
+                        return `<li class="certification-item">
+                            <a href="${item.url}" target="_blank" rel="noopener noreferrer">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" style="margin-right: 6px;">
+                                    <path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <span>${item.name}</span>
+                            </a>
+                        </li>`;
+                    } else if (item.name) {
+                        // Object with just a name
+                        return `<li><span>${item.name}</span></li>`;
+                    }
                 }
+                // Simple string item
+                return `<li><span>${item}</span></li>`;
             }).join('')
-            : `<li>${category.items}</li>`;
+            : `<li><span>${category.items}</span></li>`;
         
         categoryDiv.innerHTML = `
             <h3>${category.name}</h3>
-            <ul>
+            <ul class="skills-list">
                 ${itemsHtml}
             </ul>
         `;

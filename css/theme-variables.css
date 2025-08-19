@@ -1,0 +1,21 @@
+:root {
+  /* Light theme */
+  --chip-background: #f0f0f0;
+  --chip-text: #2c3e50;
+  --chip-shadow: rgba(0, 0, 0, 0.05);
+  --chip-hover-shadow: rgba(0, 0, 0, 0.1);
+  --chip-hover-background: #e8e8e8;
+  --scrollbar-thumb: #c0c0c0;
+  --scrollbar-track: #f0f0f0;
+}
+
+[data-theme="dark"] {
+  /* Dark theme */
+  --chip-background: #2d3436;
+  --chip-text: #ecf0f1;
+  --chip-shadow: rgba(0, 0, 0, 0.2);
+  --chip-hover-shadow: rgba(0, 0, 0, 0.3);
+  --chip-hover-background: #34495e;
+  --scrollbar-thumb: #4a4a4a;
+  --scrollbar-track: #2d2d2d;
+}

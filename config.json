@@ -130,22 +130,91 @@
       {
         "name": "Programming Languages & Technologies",
         "items": [
-          "JavaScript",
-          "Python",
-          "Java",
-          "TypeScript"
+          {
+            "name": "JavaScript",
+            "logo": "assets/logos/languages/javascript.svg"
+          },
+          {
+            "name": "Python",
+            "logo": "assets/logos/languages/python.svg"
+          },
+          {
+            "name": "SQL",
+            "logo": "assets/logos/languages/sql.svg"
+          },
+          {
+            "name": "TypeScript",
+            "logo": "assets/logos/languages/typescript.svg"
+          }
         ]
       },
       {
         "name": "Tools & Platforms",
         "items": [
-          "Git",
-          "GitHub",
-          "Flutter",
-          "Firebase",
-          "Google Colab",
-          "VS Code",
-          "Docker"
+          {
+            "name": "Git",
+            "logo": "assets/logos/tools/git.svg"
+          },
+          {
+            "name": "Firebase",
+            "logo": "assets/logos/tools/firebase.svg"
+          },
+          {
+            "name": "Flutter",
+            "logo": "assets/logos/tools/flutter.svg"
+          },
+          {
+            "name": "AppSheet",
+            "logo": "assets/logos/tools/appsheet.png"
+          },
+          {
+            "name": "Airflow",
+            "logo": "assets/logos/tools/airflow.svg"
+          },
+          {
+            "name": "Apache Spark",
+            "logo": "assets/logos/tools/spark.svg"
+          },
+          {
+            "name": "Google Colab",
+            "logo": "assets/logos/tools/colab.png"
+          },
+          {
+            "name": "VS Code",
+            "logo": "assets/logos/tools/vscode.svg"
+          },
+          {
+            "name": "Docker",
+            "logo": "assets/logos/tools/docker.svg"
+          },
+          {
+            "name": "Postman",
+            "logo": "assets/logos/tools/postman.svg"
+          },
+          {
+            "name": "Jupyter Notebook",
+            "logo": "assets/logos/tools/jupyter.svg"
+          },
+          {
+            "name": "Google Cloud Platform",
+            "logo": "assets/logos/tools/gcp.svg"
+          },
+          {
+            "name": "Amazon Web Services",
+            "logo": "assets/logos/tools/aws.svg"
+          },
+          {
+            "name": "Microsoft Azure",
+            "logo": "assets/logos/tools/azure.svg"
+          },
+          {
+            "name": "Oracle Cloud",
+            "logo": "assets/logos/tools/oracle-cloud.svg"
+          },
+          {
+            "name": "Kubernetes",
+            "logo": "assets/logos/tools/kubernetes.svg"
+          }
         ]
       },
       {
