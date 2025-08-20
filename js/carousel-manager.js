@@ -1,86 +1,121 @@
 // Carousel Manager
 export class CarouselManager {
-    constructor(carouselElement) {
-        this.carousel = carouselElement;
-        this.container = carouselElement.querySelector('.carousel-container');
-        this.slides = Array.from(this.container.querySelectorAll('.carousel-slide'));
-        this.dots = Array.from(carouselElement.querySelectorAll('.carousel-dot'));
-        this.prevButton = carouselElement.querySelector('.carousel-prev');
-        this.nextButton = carouselElement.querySelector('.carousel-next');
-        
+    constructor(container, images, options = {}) {
+        this.container = container;
+        this.images = images;
+        this.options = {
+            orientation: 'landscape', // default
+            autoplay: true,
+            autoplayInterval: 1000,
+            ...options
+        };
+
         this.currentIndex = 0;
-        this.slidesCount = this.slides.length;
-        
-        this.initializeCarousel();
+        this.autoplayTimer = null;
+        this.init();
     }
-    
-    initializeCarousel() {
-        // Add event listeners
-        this.prevButton.addEventListener('click', () => this.prevSlide());
-        this.nextButton.addEventListener('click', () => this.nextSlide());
-        
-        // Add dot click handlers
-        this.dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => this.goToSlide(index));
+
+    init() {
+        this.container.innerHTML = ''; // Clear existing content
+        this.container.className = `project-carousel carousel-${this.options.orientation}`;
+
+        const carouselContainer = document.createElement('div');
+        carouselContainer.className = 'carousel-container';
+        this.carouselContainer = carouselContainer;
+
+        this.images.forEach(image => {
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide';
+            const img = document.createElement('img');
+            img.src = image;
+            img.loading = 'lazy';
+            slide.appendChild(img);
+            carouselContainer.appendChild(slide);
         });
-        
-        // Add touch support
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        this.carousel.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-        
-        this.carousel.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            this.handleSwipe(touchStartX, touchEndX);
-        }, { passive: true });
-        
-        // Initial update
-        this.updateCarousel();
-    }
-    
-    handleSwipe(startX, endX) {
-        const diff = startX - endX;
-        const threshold = 50; // minimum distance for swipe
-        
-        if (Math.abs(diff) > threshold) {
-            if (diff > 0) {
-                this.nextSlide();
-            } else {
-                this.prevSlide();
+
+        this.container.appendChild(carouselContainer);
+
+        if (this.images.length > 1) {
+            this.createArrows();
+            this.createDots();
+            this.updateCarousel();
+            if (this.options.autoplay) {
+                this.startAutoplay();
             }
         }
     }
-    
+
+    createArrows() {
+        const prevButton = document.createElement('button');
+        prevButton.className = 'carousel-arrow carousel-prev';
+        prevButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>`;
+        prevButton.addEventListener('click', () => this.prevSlide());
+
+        const nextButton = document.createElement('button');
+        nextButton.className = 'carousel-arrow carousel-next';
+        nextButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>`;
+        nextButton.addEventListener('click', () => this.nextSlide());
+
+        this.container.appendChild(prevButton);
+        this.container.appendChild(nextButton);
+    }
+
+    createDots() {
+        const nav = document.createElement('div');
+        nav.className = 'carousel-nav';
+        this.dots = [];
+
+        this.images.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'carousel-dot';
+            dot.addEventListener('click', () => this.goToSlide(index));
+            nav.appendChild(dot);
+            this.dots.push(dot);
+        });
+
+        this.container.appendChild(nav);
+    }
+
     prevSlide() {
-        this.currentIndex = (this.currentIndex - 1 + this.slidesCount) % this.slidesCount;
+        this.stopAutoplay();
+        this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
         this.updateCarousel();
     }
-    
+
     nextSlide() {
-        this.currentIndex = (this.currentIndex + 1) % this.slidesCount;
+        this.stopAutoplay();
+        this.currentIndex = (this.currentIndex + 1) % this.images.length;
         this.updateCarousel();
     }
-    
+
     goToSlide(index) {
+        this.stopAutoplay();
         this.currentIndex = index;
         this.updateCarousel();
     }
-    
+
     updateCarousel() {
-        // Update slides
         const offset = -100 * this.currentIndex;
-        this.container.style.transform = `translateX(${offset}%)`;
-        
-        // Update dots
-        this.dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === this.currentIndex);
-        });
-        
-        // Update button states (optional for infinite scroll)
-        this.prevButton.classList.toggle('disabled', this.currentIndex === 0);
-        this.nextButton.classList.toggle('disabled', this.currentIndex === this.slidesCount - 1);
+        this.carouselContainer.style.transform = `translateX(${offset}%)`;
+
+        if (this.dots) {
+            this.dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === this.currentIndex);
+            });
+        }
+    }
+
+    startAutoplay() {
+        if (this.autoplayTimer) {
+            clearInterval(this.autoplayTimer);
+        }
+        this.autoplayTimer = setInterval(() => {
+            this.currentIndex = (this.currentIndex + 1) % this.images.length;
+            this.updateCarousel();
+        }, this.options.autoplayInterval);
+    }
+
+    stopAutoplay() {
+        clearInterval(this.autoplayTimer);
     }
 }

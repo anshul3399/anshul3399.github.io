@@ -1,3 +1,5 @@
+import { CarouselManager } from './carousel-manager.js';
+
 // Section Manager Module
 export class SectionManager {
     constructor(configManager) {
@@ -171,15 +173,6 @@ export class SectionManager {
             ? project.description.map(desc => `<li>${desc}</li>`).join('')
             : `<li>${project.description}</li>`;
             
-        // Get project images (assuming they're in an images array in the project object)
-        const projectImages = project.images || [project.picture];
-        const carouselSlidesHtml = projectImages
-            .map((img, index) => `
-                <div class="carousel-slide">
-                    <img src="${img}" alt="${project.name} screenshot ${index + 1}" loading="lazy">
-                </div>
-            `).join('');
-        
         projectItem.innerHTML = `
             <div class="project-top">
                 <div class="project-content">
@@ -204,7 +197,7 @@ export class SectionManager {
                             </a>
                         ` : ''}
                         ${project.images && project.images.length > 0 ? `
-                            <button class="carousel-toggle" aria-label="Toggle project images">
+                            <button class="carousel-toggle" aria-label="Show project images" aria-expanded="false">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="6 9 12 15 18 9"></polyline>
                                 </svg>
@@ -213,44 +206,20 @@ export class SectionManager {
                     </div>
                 </div>
             </div>
-            ${project.images && project.images.length > 0 ? `
-                <div class="project-carousel">
-                    <div class="carousel-container">
-                        ${project.images.map(image => `
-                            <div class="carousel-slide">
-                                <img src="${image}" alt="${project.name} screenshot" loading="lazy">
-                            </div>
-                        `).join('')}
-                    </div>
-                    ${project.images.length > 1 ? `
-                        <button class="carousel-arrow carousel-prev" aria-label="Previous image">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="15 18 9 12 15 6"></polyline>
-                            </svg>
-                        </button>
-                        <button class="carousel-arrow carousel-next" aria-label="Next image">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </button>
-                        <div class="carousel-nav">
-                            ${project.images.map((_, index) => `
-                                <div class="carousel-dot${index === 0 ? ' active' : ''}" data-index="${index}"></div>
-                            `).join('')}
-                        </div>
-                    ` : ''}
-                </div>
-            ` : ''}
-            </div>
+            ${project.images && project.images.length > 0 ? '<div class="project-carousel-wrapper" style="display: none;"></div>' : ''}
         `;
         
-        // Setup carousel toggle functionality
-        const toggleBtn = projectItem.querySelector('.carousel-toggle');
-        const carousel = projectItem.querySelector('.project-carousel');
-        
-        if (toggleBtn && carousel) {
+        // Setup carousel if images exist
+        if (project.images && project.images.length > 0) {
+            const carouselWrapper = projectItem.querySelector('.project-carousel-wrapper');
+            new CarouselManager(carouselWrapper, project.images, { orientation: project.orientation || 'landscape' });
+
+            const toggleBtn = projectItem.querySelector('.carousel-toggle');
             toggleBtn.addEventListener('click', () => {
-                carousel.classList.toggle('active');
+                const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+                toggleBtn.setAttribute('aria-expanded', !isExpanded);
+                carouselWrapper.style.display = isExpanded ? 'none' : 'block';
+                projectItem.classList.toggle('is-expanded');
                 toggleBtn.classList.toggle('active');
             });
         }
@@ -330,7 +299,7 @@ export class SectionManager {
                 ${logoHtml}
                 <div class="accordion-toggle">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="6,9 12,15 18,9"></polyline>
+                        <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                 </div>
             </div>

@@ -57,17 +57,18 @@
         ],
         "picture": "assets/projects/portfolio_website/portfolio_website_icon.png",
         "images": [
-          "assets/projects/portfolio_website/screenshot1.png",
-          "assets/projects/portfolio_website/screenshot2.png",
-          "assets/projects/portfolio_website/screenshot3.png"
+          "assets/projects/portfolio_website/Screenshot_1.png",
+          "assets/projects/portfolio_website/Screenshot_2.png",
+          "assets/projects/portfolio_website/Screenshot_3.png"
         ],
+        "orientation": "landscape",
         "link": {
           "url": "https://anshul3399.github.io",
           "title": "View Live Site"
         },
         "domain": ["Development", "Automation"]
       },
-      {
+       {
         "name": "Sanjeevni Pharmacy App",
         "date": "February, 2022",
         "description": [
@@ -83,6 +84,7 @@
         },
         "domain": ["Digital Enablement for Local Businesses"]
       },
+     
       {
         "name": "Narayan Udyog Inventory Management App",
         "date": "November, 2023",
@@ -115,6 +117,7 @@
           "assets/projects/MusikQ App/FilterApplication.jpg",
           "assets/projects/MusikQ App/PinView_Screen.jpg"
         ],
+        "orientation": "portrait",
         "link": {
           "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
           "title": "View Demo Video"
@@ -139,6 +142,7 @@
           "assets/projects/StockScreeningPFMngnmnt_Scripts/StockScreening_4.png",
           "assets/projects/StockScreeningPFMngnmnt_Scripts/StockScreening_5.png"
         ],
+        "orientation": "landscape",
         "link": {
           "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
           "title": "View Demo Video"
@@ -202,7 +206,7 @@
           },
           {
             "name": "Firebase",
-            "logo": "assets/logos/tools/firebase.svg"
+            "logo": "assets.logos/tools/firebase.svg"
           },
           {
             "name": "Flutter",
@@ -240,34 +244,12 @@
             "name": "AppSheet",
             "logo": "assets/logos/tools/appsheet.png"
           },
-          {
-            "name": "VS Code",
-            "logo": "assets/logos/tools/vscode.svg"
-          },
+         
           
-          {
-            "name": "Postman",
-            "logo": "assets/logos/tools/postman.svg"
-          },
-          {
-            "name": "Jupyter Notebook",
-            "logo": "assets/logos/tools/jupyter.svg"
-          },
-          {
-            "name": "Google Cloud Platform",
-            "logo": "assets/logos/tools/gcp.svg"
-          },
-          {
-            "name": "Amazon Web Services",
-            "logo": "assets/logos/tools/aws.svg"
-          },
+         
           {
             "name": "Microsoft Azure",
             "logo": "assets/logos/tools/azure.svg"
-          },
-          {
-            "name": "Oracle Cloud",
-            "logo": "assets/logos/tools/oracle-cloud.svg"
           }
          
         ]

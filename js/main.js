@@ -39,10 +39,6 @@ class PortfolioApp {
             // Update page content from config
                 this.sectionManager.updatePageContent(config);
                 
-                // Initialize carousels
-                const carousels = document.querySelectorAll('.project-carousel');
-                carousels.forEach(carousel => new CarouselManager(carousel));
-                
                 // Ensure domain chips are interactive after initial render
                 setTimeout(() => {
                     const chips = document.querySelectorAll('.project-domain-chip');
