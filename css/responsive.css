@@ -1,127 +1,120 @@
 /* Responsive Design */
+
+/* --- Tablet & Mobile --- */
 @media (max-width: 768px) {
+    body {
+        -webkit-text-size-adjust: 100%; /* Prevents iOS font scaling */
+    }
+
     .container {
-        width: 95%;
-        padding: 1rem;
+        width: 90%;
+        padding: 1.5rem 0;
     }
-    
+
+    section h2 {
+        font-size: 1.3rem;
+    }
+
+    /* --- Header --- */
     .profile-img {
-        width: 140px;
-        height: 140px;
+        width: 120px;
+        height: 120px;
     }
-    
-    .social-links {
-        gap: 0.75rem;
-        justify-content: center;
+
+    h1 {
+        font-size: 1.8rem;
     }
-    
-    .social-links a {
-        flex: 0 1 auto;
-        min-width: 120px;
-        max-width: 180px;
-        padding: 0.625rem 1rem;
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    /* --- Projects --- */
+    .project-item {
+        margin-bottom: 1.5rem;
+    }
+
+    .project-top {
+        padding: 1.5rem;
+    }
+
+    .project-title {
+        font-size: 1.25rem;
+    }
+
+    .project-domain-chips {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .project-domain-chip {
         font-size: 0.875rem;
-        justify-content: center;
+        padding: 0.4rem 1rem;
     }
-    
+
+    .carousel-portrait {
+        width: 100%;
+        max-width: none;
+    }
+
+    /* --- Skills --- */
     .skills-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
-    
+
     .skill-category {
-        text-align: center;
-    }
-    
-    .skill-category li {
-        padding-left: 0;
-    }
-    
-    .skill-category li::before {
-        display: none;
-    }
-     .experience-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
+        padding: 1rem;
     }
 
-    .experience-header-content {
-        width: 100%;
+    .skill-category h3 {
+        font-size: 1.1rem;
     }
 
-    .experience-content {
-        padding: 0;
+    /* --- Experience --- */
+    .experience-item {
         text-align: left;
-        max-height: 0;
-        overflow: hidden;
     }
 
-    .experience-item.expanded .experience-content {
-        padding: 0 1rem 1.5rem;
-        max-height: 500px;
-    }
-    
-    .company-logo {
-        width: 180px;
-        margin: 0 auto;
-        order: 2;
-    }
-
-    .company-logo img {
-        max-height: 40px;
-    }
-
-    .project-item {
-        flex-direction: column;
-        text-align: center;
-        cursor: pointer;
-    }
-
-    /* Show project header on mobile for accordion */
-    .project-header {
-        display: flex !important;
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
+    .experience-header {
+        flex-direction: row;
         align-items: center;
-    }
-
-    /* Hide project content by default on mobile */
-    .project-content {
-        width: 100%;
-        padding: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* Show project content when expanded */
-    .project-item.expanded .project-content {
-        padding: 0 1.5rem 1.5rem;
-        max-height: 500px;
-        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .project-content ul {
         text-align: left;
     }
-    
-    .project-image {
-        width: 100%;
-        min-height: unset;
-        aspect-ratio: 16/9;
-        order: 2;
+
+    .company-logo {
+        width: 80px;
+        margin: 0;
+        margin-left: auto; /* Push logo to the right */
+        order: 0;
     }
 
-    .project-card {
-        text-align: center;
+    /* --- GitHub Projects --- */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
-    
-    .project-links {
-        position: relative;
-        left: 0;
-        bottom: 0;
+}
+
+/* --- Mobile Only --- */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+    }
+
+    .project-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .project-link,
+    .carousel-toggle {
+        width: 100%;
         justify-content: center;
-        margin-top: 1rem;
+    }
+
+    .carousel-toggle {
+        margin-left: 0;
     }
 }

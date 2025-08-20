@@ -88,6 +88,14 @@ export class SectionManager {
         
         // If not already rendered
         if (domainChipsContainer && domainChipsContainer.childElementCount === 0) {
+            const filterLabel = document.createElement('h4');
+            filterLabel.className = 'filter-label';
+            filterLabel.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle;"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>Filter by category:`;
+            domainChipsContainer.appendChild(filterLabel);
+
+            const chipWrapper = document.createElement('div');
+            chipWrapper.className = 'chip-wrapper';
+
             domains.forEach(domain => {
                 const chip = document.createElement('button');
                 chip.className = 'project-domain-chip';
@@ -98,12 +106,13 @@ export class SectionManager {
                     chip.classList.toggle('selected');
                     chip.setAttribute('aria-pressed', chip.classList.contains('selected'));
                     this.filterProjectsByDomain(config, domains.filter(d => {
-                        const c = Array.from(domainChipsContainer.children).find(x => x.textContent === d);
+                        const c = Array.from(chipWrapper.children).find(x => x.textContent === d);
                         return c && c.classList.contains('selected');
                     }));
                 });
-                domainChipsContainer.appendChild(chip);
+                chipWrapper.appendChild(chip);
             });
+            domainChipsContainer.appendChild(chipWrapper);
         }
 
         // Clear existing project items

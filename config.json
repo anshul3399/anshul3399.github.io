@@ -66,9 +66,12 @@
           "url": "https://anshul3399.github.io",
           "title": "View Live Site"
         },
-        "domain": ["Development", "Automation"]
+        "domain": [
+          "Development",
+          "Automation"
+        ]
       },
-       {
+      {
         "name": "Sanjeevni Pharmacy App",
         "date": "February, 2022",
         "description": [
@@ -82,9 +85,10 @@
           "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
           "title": "View Demo Video"
         },
-        "domain": ["Digital Enablement for Local Businesses"]
+        "domain": [
+          "Digital Enablement for Local Businesses"
+        ]
       },
-     
       {
         "name": "Narayan Udyog Inventory Management App",
         "date": "November, 2023",
@@ -94,12 +98,14 @@
           "The app empowers store operators to access real-time inventory data on demand, reduce manual errors, and streamline day-to-day operations.",
           "By automating inventory handling, the application helps improve decision-making, prevents stockouts or overstocking, and ultimately enhances overall customer satisfaction."
         ],
-        "picture":"assets/projects/NarayanUdyog_App/NarayanUdyog_App.png",
+        "picture": "assets/projects/NarayanUdyog_App/NarayanUdyog_App.png",
         "link": {
           "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
           "title": "View Demo Video"
         },
-        "domain": ["Digital Enablement for Local Businesses"]
+        "domain": [
+          "Digital Enablement for Local Businesses"
+        ]
       },
       {
         "name": "MusikQ App",
@@ -122,9 +128,12 @@
           "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
           "title": "View Demo Video"
         },
-        "domain": ["Scripting", "Development"]
+        "domain": [
+          "Scripting",
+          "Development"
+        ]
       },
-       {
+      {
         "name": "Stock Screening & Portfolio Management Scripts",
         "date": "May, 2023",
         "description": [
@@ -147,7 +156,9 @@
           "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
           "title": "View Demo Video"
         },
-        "domain": ["Scripting"]
+        "domain": [
+          "Scripting"
+        ]
       }
     ]
   },
@@ -164,8 +175,21 @@
           "Mention any notable projects or impact metrics",
           "Update this section with your actual work experience"
         ],
-        "logo": "assets/logos/Oracle_Logo.png",
-        "logo_dark": "assets/logos/Oracle_Logo.png"
+        "logo": "assets/logos/Oracle_logo.svg",
+        "logo_dark": "assets/logos/Oracle_Logo.svg"
+      },
+      {
+        "company": "Persistent Systems Ltd.",
+        "role": "Intern",
+        "date": "June, 2022 - December, 2022",
+        "responsibilities": [
+          "Add your key responsibilities and achievements here",
+          "Include specific technologies you worked with",
+          "Mention any notable projects or impact metrics",
+          "Update this section with your actual work experience"
+        ],
+        "logo": "assets/logos/Persistent_Systems_Logo.svg",
+        "logo_dark": "assets/logos/Persistent_Systems_Logo.svg"
       }
     ]
   },
@@ -187,7 +211,7 @@
             "name": "SQL",
             "logo": "assets/logos/languages/sql.svg"
           },
-        {
+          {
             "name": "NoSQL",
             "logo": "assets/logos/languages/nosql.svg"
           },
@@ -206,7 +230,7 @@
           },
           {
             "name": "Firebase",
-            "logo": "assets.logos/tools/firebase.svg"
+            "logo": "assets/logos/tools/firebase.svg"
           },
           {
             "name": "Flutter",
@@ -238,28 +262,28 @@
           },
           {
             "name": "Google Colab",
-            "logo": "assets/logos/tools/colab.png"
+            "logo": "assets/logos/tools/googleColab.svg"
           },
-           {
+          {
             "name": "AppSheet",
-            "logo": "assets/logos/tools/appsheet.png"
+            "logo": "assets/logos/tools/appsheet.svg"
           },
-         
-          
-         
           {
             "name": "Microsoft Azure",
             "logo": "assets/logos/tools/azure.svg"
+          },
+          {
+            "name": "PostgreSQL",
+            "logo": "assets/logos/tools/postgresql.svg"
           }
-         
         ]
       },
       {
         "name": "Certifications & Publications",
         "items": [
           {
-            "name": "Data Engineering Essentials: IBM",
-            "url": "https://www.credly.com/badges/7cf7e3c9-c1eb-4f7d-8606-f01c21d9c509/public_url",
+            "name": "IBM Data Engineering Professional Certificate (V3)",
+            "url": "https://www.credly.com/badges/a6bd32ad-6bfb-4339-b1a9-1c42b411f56e",
             "logo": "assets/logos/certifications/ibm-logo.svg"
           },
           {
@@ -276,6 +300,11 @@
             "name": "ICICA Conference Publication 2022",
             "url": "https://www.researchgate.net/publication/363860461_2nd_International_Conference_on_Innovative_Computing_and_Applications_ICICA%2722_Virtual_mode_at_Shri_Ramdeobaba_College_of_Engineering_and_Management_Nagpur_Proceedings_to_be_published_in_IJNGC_ESCI",
             "logo": "assets/logos/certifications/ICICA-logo.svg"
+          },
+          {
+            "name": "Containers & Kubernetes Essentials",
+            "url": "https://www.credly.com/badges/d6f9d5bb-3749-4dd8-8371-31950d361991/public_url",
+            "logo": "assets/logos/certifications/coursera-logo.svg"
           }
         ]
       }
