@@ -6,6 +6,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: var(--transition);
     overflow: hidden;
+    text-align: left;
 }
 
 .experience-item:hover {
@@ -31,6 +32,7 @@
 .experience-header-content h3 {
     color: var(--heading-color);
     margin-bottom: 0.5rem;
+    font-family: 'Lexend Deca', sans-serif;
 }
 
 .experience-header-content .date {
@@ -55,21 +57,27 @@
 
 .experience-content ul {
     list-style: none;
-    color: var(--text-muted);
     margin: 0;
 }
 
 .experience-content li {
-    margin-bottom: 0.5rem;
     position: relative;
-    padding-left: 1rem;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    font-size: 1rem;
 }
 
 .experience-content li::before {
-    content: "•";
+    content: "";
     position: absolute;
     left: 0;
-    color: var(--text-muted);
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
 }
 
 /* Accordion Toggle Icon */

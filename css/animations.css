@@ -14,3 +14,12 @@
         transform: translateY(0);
     }
 }
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% -200%;
+    }
+    100% {
+        background-position: 200% 200%;
+    }
+}

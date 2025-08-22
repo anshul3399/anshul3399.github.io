@@ -19,7 +19,7 @@
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 75%; /* 4:3 Aspect Ratio */
+    padding-top: 60%; /* Reduced height by 20% */
 }
 
 .carousel-container {

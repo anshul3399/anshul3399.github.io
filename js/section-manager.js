@@ -383,45 +383,54 @@ export class SectionManager {
     createSkillCategory(category) {
         const categoryDiv = document.createElement('div');
         categoryDiv.className = 'skill-category';
-        
-        const itemsHtml = Array.isArray(category.items)
-            ? category.items.map(item => {
+
+        const title = document.createElement('h3');
+        title.textContent = category.name;
+        categoryDiv.appendChild(title);
+
+        const list = document.createElement('ul');
+        list.className = 'skills-list';
+
+        if (Array.isArray(category.items)) {
+            category.items.forEach(item => {
+                const listItem = document.createElement('li');
                 if (typeof item === 'object') {
-                    if (item.name && item.logo) {
-                        // Item with logo (Tools or Languages)
-                        return `<li>
-                            <img src="${item.logo}" alt="${item.name} logo" loading="lazy">
+                    if (item.name && item.logo && !item.url) { // Language or Tool
+                        listItem.innerHTML = `<img src="${item.logo}" alt="${item.name} logo" loading="lazy"><span>${item.name}</span>`;
+                    } else if (item.name && item.url) { // Certification
+                        listItem.className = 'certification-item';
+                        const link = document.createElement('a');
+                        link.href = item.url;
+                        link.target = '_blank';
+                        link.rel = 'noopener noreferrer';
+                        link.innerHTML = `
+                            ${item.logo ? `<img src="${item.logo}" alt="${item.name} logo" loading="lazy">` : `
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                    <path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            `}
                             <span>${item.name}</span>
-                        </li>`;
-                    } else if (item.name && item.url) {
-                        // Certification with link and possibly a logo
-                        return `<li class="certification-item">
-                            <a href="${item.url}" target="_blank" rel="noopener noreferrer">
-                                ${item.logo ? `<img src="${item.logo}" alt="${item.name} logo" loading="lazy">` : `
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                        <path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                    </svg>
-                                `}
-                                <span>${item.name}</span>
-                            </a>
-                        </li>`;
-                    } else if (item.name) {
-                        // Object with just a name
-                        return `<li><span>${item.name}</span></li>`;
+                        `;
+                        link.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            window.open(item.url, '_blank');
+                        });
+                        listItem.appendChild(link);
+                    } else if (item.name) { // Just a name
+                        listItem.innerHTML = `<span>${item.name}</span>`;
                     }
+                } else { // Simple string item
+                    listItem.innerHTML = `<span>${item}</span>`;
                 }
-                // Simple string item
-                return `<li><span>${item}</span></li>`;
-            }).join('')
-            : `<li><span>${category.items}</span></li>`;
-        
-        categoryDiv.innerHTML = `
-            <h3>${category.name}</h3>
-            <ul class="skills-list">
-                ${itemsHtml}
-            </ul>
-        `;
-        
+                list.appendChild(listItem);
+            });
+        } else {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `<span>${category.items}</span>`;
+            list.appendChild(listItem);
+        }
+
+        categoryDiv.appendChild(list);
         return categoryDiv;
     }
 }

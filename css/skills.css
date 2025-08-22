@@ -24,7 +24,8 @@
 .skill-category h3 {
     color: var(--heading-color);
     margin-bottom: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    font-family: 'Lexend Deca', sans-serif;
 }
 
 .skill-category ul {
@@ -104,6 +105,8 @@
     background: none;
     box-shadow: none;
     width: 100%;
+    position: static;
+    pointer-events: none;
 }
 
 .skill-category li.certification-item a {
@@ -117,6 +120,10 @@
     background-color: var(--card-background-darker);
     width: 100%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 1;
+    pointer-events: auto;
+    overflow: hidden;
 }
 
 .skill-category li.certification-item a:hover {
@@ -139,3 +146,5 @@
     white-space: normal;
     line-height: 1.4;
 }
+
+

@@ -7,7 +7,6 @@ import { SectionManager } from './section-manager.js';
 import { HeaderManager } from './header-manager.js';
 import { GitHubProjectsManager } from './github-projects-manager.js';
 import { FooterManager } from './footer-manager.js';
-import { CarouselManager } from './carousel-manager.js';
 
 class PortfolioApp {
     constructor() {
@@ -37,15 +36,15 @@ class PortfolioApp {
             this.headerManager.updateHeaderSection(config);
 
             // Update page content from config
-                this.sectionManager.updatePageContent(config);
-                
-                // Ensure domain chips are interactive after initial render
-                setTimeout(() => {
-                    const chips = document.querySelectorAll('.project-domain-chip');
-                    if (chips.length) {
-                        chips.forEach(chip => chip.classList.remove('selected'));
-                    }
-                }, 0);
+            this.sectionManager.updatePageContent(config);
+            
+            // Ensure domain chips are interactive after initial render
+            setTimeout(() => {
+                const chips = document.querySelectorAll('.project-domain-chip');
+                if (chips.length) {
+                    chips.forEach(chip => chip.classList.remove('selected'));
+                }
+            }, 0);
 
             // Update footer section
             this.footerManager.updateFooterSection(config);
@@ -59,10 +58,28 @@ class PortfolioApp {
             // Hide loading screen after all content has loaded
             this.loadingManager.hideLoadingScreen();
 
+            // Force certification links to be clickable
+            this.forceCertificationLinks();
+
         } catch (error) {
             console.error('Error initializing portfolio:', error);
             this.loadingManager.hideLoadingScreen(false);
         }
+    }
+
+    forceCertificationLinks() {
+        // This is a workaround for a stubborn bug where something is preventing
+        // the default link behavior on certification items.
+        setTimeout(() => {
+            const certLinks = document.querySelectorAll('.skill-category li.certification-item a');
+            certLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    window.open(link.href, '_blank');
+                }, true); // Use capture phase to ensure this runs first
+            });
+        }, 500); // Delay to ensure elements are rendered
     }
 }
 

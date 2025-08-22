@@ -99,6 +99,12 @@
           "By automating inventory handling, the application helps improve decision-making, prevents stockouts or overstocking, and ultimately enhances overall customer satisfaction."
         ],
         "picture": "assets/projects/NarayanUdyog_App/NarayanUdyog_App.png",
+         "images": [
+          "assets/projects/NarayanUdyog_App/NarayanUdyog_1.jpg",
+          "assets/projects/NarayanUdyog_App/NarayanUdyog_2.jpg",
+          "assets/projects/NarayanUdyog_App/NarayanUdyog_3.jpg"
+        ],
+        "orientation": "portrait",
         "link": {
           "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
           "title": "View Demo Video"
@@ -188,8 +194,8 @@
           "Mention any notable projects or impact metrics",
           "Update this section with your actual work experience"
         ],
-        "logo": "assets/logos/Persistent_Systems_Logo.svg",
-        "logo_dark": "assets/logos/Persistent_Systems_Logo.svg"
+        "logo": "assets/logos/Persistent_Systems_Logo_Light.svg",
+        "logo_dark": "assets/logos/Persistent_Systems_Logo_Dark.svg"
       }
     ]
   },
@@ -288,7 +294,7 @@
           },
           {
             "name": "Microsoft Azure Fundamentals - AZ900",
-            "url": "https://www.credly.com/badges/7cf7e3c9-c1eb-4f7d-8606-f01c21d9c509/public_url",
+            "url": "https://learn.microsoft.com/api/credentials/share/en-us/AnshulSharma-8023/38B07DB60E195C4C?sharingId=EC3A1B81D1805BDD",
             "logo": "assets/logos/certifications/microsoft-logo.svg"
           },
           {
