@@ -13,6 +13,7 @@
     color: var(--text-muted);
     display: flex;
     align-items: center;
+    font-family: 'Lexend Deca', sans-serif;
 }
 
 .chip-wrapper {
@@ -281,6 +282,4 @@
     border-radius: 20px; /* To match the chip's border-radius */
 }
 
-.projects:hover .project-domain-chip::after {
-    animation: none;
-}
+
