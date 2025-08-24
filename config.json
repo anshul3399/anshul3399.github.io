@@ -183,10 +183,9 @@
         "role": "Associate Consultant",
         "date": "June, 2023 - Present",
         "responsibilities": [
-          "Add your key responsibilities and achievements here",
-          "Include specific technologies you worked with",
-          "Mention any notable projects or impact metrics",
-          "Update this section with your actual work experience"
+          "Developed and customized 50+ core banking functionalities in Oracle Flexcube, leveraging PL/SQL, Java, JavaScript, and SQL to meet client-specific requirements and streamline automation processes.",
+          "Designed and implemented 20+ BI reports across key banking modules using Oracle BI Publisher, empowering data-driven decision-making and improving operational efficiency by 30%.",
+          "Integrated SonarQube for static code analysis, proactively identifying and resolving critical issues, which led to a 15% boost in code maintainability and a 20% reduction in production defects."
         ],
         "logo": "assets/logos/Oracle_logo.svg",
         "logo_dark": "assets/logos/Oracle_Logo.svg"
@@ -196,10 +195,8 @@
         "role": "Intern",
         "date": "June, 2022 - December, 2022",
         "responsibilities": [
-          "Add your key responsibilities and achievements here",
-          "Include specific technologies you worked with",
-          "Mention any notable projects or impact metrics",
-          "Update this section with your actual work experience"
+          "Contributed to 5+ innovative projects under the Martian Program, focusing on cloud technologies and automation scripting to streamline workflows, resulting in a reduction of 13 hours of manual effort per week and improved operational productivity.",
+          "Collaborated with cross-functional teams and benefited from mentorship, enhancing both technical expertise and professional development in a fast-paced, project-driven environment."
         ],
         "logo": "assets/logos/Persistent_Systems_Logo_Light.svg",
         "logo_dark": "assets/logos/Persistent_Systems_Logo_Dark.svg"
@@ -322,6 +319,21 @@
             "name": "Containers & Kubernetes Essentials",
             "url": "https://www.credly.com/badges/d6f9d5bb-3749-4dd8-8371-31950d361991/public_url",
             "logo": "assets/logos/certifications/coursera-logo.svg"
+          },
+          {
+            "name": "Cisco Network Defense",
+            "url": "https://www.credly.com/badges/dede5c7f-a496-4df7-9fe3-6a42c066a5a8",
+            "logo": "assets/logos/certifications/cisco_logo.svg"
+          },
+          {
+            "name": "Cisco: Introduction to Cybersecurity",
+            "url": "https://www.credly.com/badges/28b5fd38-55df-4451-8797-33ac80971c23",
+            "logo": "assets/logos/certifications/cisco_logo.svg"
+          },
+          {
+            "name": "Cisco Networking Essentials",
+            "url": "https://www.credly.com/badges/11fcb715-6d26-4fc6-831e-928390801626",
+            "logo": "assets/logos/certifications/cisco_logo.svg"
           }
         ]
       }
@@ -334,6 +346,21 @@
     "show_social_links": true,
     "show_built_with": false,
     "built_with_text": "Built with ❤️ using vanilla JavaScript",
-    "tagline": "Let's connect and build something amazing together!"
+    "tagline": "Let's connect and build something amazing together!",
+    "attributions": [
+      {
+        "name": "Feather Icons",
+        "url": "https://feathericons.com/"
+      },
+      {
+        "name": "Google Fonts",
+        "url": "https://fonts.google.com/"
+      },
+      {
+        "name": "Coursera",
+        "url": "https://iconscout.com/contributors/icon-54"
+      }
+
+    ]
   }
 }
