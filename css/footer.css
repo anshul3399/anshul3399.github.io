@@ -131,6 +131,13 @@
     text-decoration: underline;
 }
 
+.disclaimer-text {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
 
 /* Responsive Design for Footer */
 @media (max-width: 768px) {

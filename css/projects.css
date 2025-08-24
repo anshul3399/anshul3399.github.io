@@ -286,4 +286,46 @@
     border-radius: 20px; /* To match the chip's border-radius */
 }
 
+.no-results-card {
+    background-color: var(--card-background-darker);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-style: italic;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
 
+.no-results-card h3 {
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.no-results-card p {
+    margin-bottom: 1rem;
+}
+
+.no-results-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.no-results-card li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.no-results-card svg {
+    width: 48px;
+    height: 48px;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}

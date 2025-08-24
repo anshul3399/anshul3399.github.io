@@ -128,7 +128,7 @@ export class SectionManager {
     // Filter and render projects by selected domain(s)
     filterProjectsByDomain(config, selectedDomains) {
         const projectsSection = document.querySelector('.projects');
-        const existingProjectItems = projectsSection.querySelectorAll('.project-item');
+        const existingProjectItems = projectsSection.querySelectorAll('.project-item, .no-results-card');
         existingProjectItems.forEach(item => item.remove());
         
         const fragment = document.createDocumentFragment();
@@ -158,16 +158,15 @@ export class SectionManager {
         } else {
             // Show placeholder for empty projects
             const emptyState = document.createElement('div');
-            emptyState.className = 'project-item';
+            emptyState.className = 'no-results-card';
             emptyState.innerHTML = `
-                <div class="project-content">
-                    <h3>No matching projects found</h3>
-                    <p class="date">Try selecting different domains</p>
-                    <ul>
-                        <li>Projects will appear here when they match the selected domains</li>
-                        <li>Clear all domain filters to see all projects</li>
-                    </ul>
-                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <h3>No Projects Found</h3>
+                <p>Adjust your filters or clear them to see more projects.</p>
             `;
             fragment.appendChild(emptyState);
         }

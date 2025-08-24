@@ -136,6 +136,11 @@ export class FooterManager {
             }
         });
 
+        const disclaimer = document.createElement('p');
+        disclaimer.classList.add('disclaimer-text');
+        disclaimer.textContent = "Disclaimer: All product names, logos, and brands are property of their respective owners. All company, product, and service names used in this website are for identification purposes only. Use of these names, logos, and brands does not imply endorsement.";
+        content.appendChild(disclaimer);
+
         attributionsElement.appendChild(toggleButton);
         attributionsElement.appendChild(content);
 

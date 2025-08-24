@@ -280,7 +280,7 @@
           },
           {
             "name": "AppSheet",
-            "logo": "assets/logos/tools/appsheet.svg"
+            "logo": "assets/logos/tools/appsheets.svg"
           },
           {
             "name": "Microsoft Azure",
@@ -348,10 +348,7 @@
     "built_with_text": "Built with ❤️ using vanilla JavaScript",
     "tagline": "Let's connect and build something amazing together!",
     "attributions": [
-      {
-        "name": "Feather Icons",
-        "url": "https://feathericons.com/"
-      },
+      
       {
         "name": "Google Fonts",
         "url": "https://fonts.google.com/"
@@ -359,6 +356,46 @@
       {
         "name": "Coursera",
         "url": "https://iconscout.com/contributors/icon-54"
+      },
+      {
+        "name": "AppSheet",
+        "url": "https://www.appsheet.com/Content/img/material/appsheet_rebrand_logo.svg"
+      },
+      {
+        "name": "IBM",
+        "url": "https://www.ibm.com/brand/experience-guides/developer/brand/logo/#ibm-developer-logotype"
+      },
+      {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks"
+      },
+      {
+        "name": "Google",
+        "url": "https://about.google/brand-resource-center/logos-list/"
+      },
+      {
+        "name": "Oracle",
+        "url": "https://www.oracle.com/in/legal/logos/"
+      },
+      {
+        "name": "Cisco",
+        "url": "https://www.cisco.com/c/en/us/about/brand-center/logo-usage-guidelines.html"
+      },
+      {
+        "name": "Persistent Systems",
+        "url": "https://www.persistent.com/wp-content/uploads/2021/03/Persistent-Brand-Guidelines.pdf"
+      },
+      {
+        "name": "Brand Logos: SVG Repo",
+        "url": "https://www.svgrepo.com/"
+      },
+      {
+        "name": "Brand Logos: Wikimedia Commons",
+        "url": "https://commons.wikimedia.org/wiki/Main_Page"
+      },
+      {
+        "name": "Feather Icons",
+        "url": "https://feathericons.com/"
       }
 
     ]
