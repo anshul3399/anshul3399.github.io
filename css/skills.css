@@ -112,6 +112,7 @@
 .skill-category li.certification-item a {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     text-decoration: none;
     color: var(--text-color);
     transition: all 0.2s ease;
@@ -126,10 +127,28 @@
     overflow: hidden;
 }
 
+.skill-category li.certification-item a span {
+    flex-grow: 1;
+}
+
+.skill-category li.certification-item a::after {
+    content: '\2197';
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+    margin-left: 1rem;
+}
+
+.skill-category li.certification-item a:hover::after {
+    color: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
 .skill-category li.certification-item a:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     background-color: var(--chip-hover-background);
+    cursor: pointer;
 }
 
 .skill-category li.certification-item img,

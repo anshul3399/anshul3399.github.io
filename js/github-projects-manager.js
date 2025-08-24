@@ -63,16 +63,29 @@ export class GitHubProjectsManager {
     // Create GitHub project card
     createGitHubProjectCard(repo, index) {
         const card = document.createElement('div');
-        card.className = 'project-card';
+        card.className = 'project-item';
         card.style.animationDelay = `${index * 0.1}s`;
         
         // Create content with improved accessibility
         card.innerHTML = `
-            <h3>${repo.name}</h3>
-            ${repo.description ? `<p>${repo.description}</p>` : '<p>No description available</p>'}
-            <div class="project-links">
-                <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" aria-label="View ${repo.name} repository on GitHub">View Repository</a>
-                ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" rel="noopener noreferrer" aria-label="View live demo of ${repo.name}">Live Demo</a>` : ''}
+            <div class="project-top">
+                <div class="project-content">
+                    <div class="project-info">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-title">${repo.name}</h3>
+                                
+                            </div>
+                        </div>
+                        <ul class="project-description">
+                            ${repo.description ? `<li>${repo.description}</li>` : '<li>No description available</li>'}
+                        </ul>
+                    </div>
+                    <div class="project-actions">
+                        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" aria-label="View ${repo.name} repository on GitHub" class="project-link">View Repository</a>
+                        ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" rel="noopener noreferrer" aria-label="View live demo of ${repo.name}" class="project-link">Live Demo</a>` : ''}
+                    </div>
+                </div>
             </div>
         `;
         

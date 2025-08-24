@@ -35,13 +35,20 @@
       "url": "https://www.linkedin.com/in/anshul3399",
       "icon": "linkedin",
       "required": true
+    },
+    {
+      "name": "Email",
+      "url": "mailto:anshul3399@gmail.com",
+      "icon": "email",
+      "required": false
     }
   ],
   "github_username": "anshul3399",
   "about": {
     "paragraphs": [
-      "Welcome to my portfolio! I'm passionate about creating amazing digital experiences and solving complex problems through code.",
-      "This portfolio showcases my experiences, projects, and skills. Feel free to explore and get in touch if you'd like to collaborate!"
+      "Hey there! I'm Anshul—thanks for stopping by my little corner of the web. I enjoy building things on the web—whether it’s experimenting with new tools, putting together clean interfaces, or just trying to make stuff work better.",
+      "Here, you'll find a collection of my favorite projects, experiments, and what I’ve been learning lately.",
+      "If anything catches your eye or you’re up for a collab, let’s chat! I'm always down to build cool stuff, learn something new, or just geek out over code."
     ]
   },
   "projects": {
@@ -269,6 +276,10 @@
           {
             "name": "Google Colab",
             "logo": "assets/logos/tools/googleColab.svg"
+          },
+           {
+            "name": "Zapier",
+            "logo": "assets/logos/tools/zapier.svg"
           },
           {
             "name": "AppSheet",

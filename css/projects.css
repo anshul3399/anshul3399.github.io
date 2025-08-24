@@ -137,10 +137,12 @@
     font-weight: 500;
     font-size: 0.875rem;
     transition: background-color 0.2s ease;
+    font-family: 'Comme', sans-serif;
 }
 
 .project-link:hover {
     background-color: var(--primary-hover);
+    color: white;
 }
 
 .project-description {
@@ -156,6 +158,7 @@
     line-height: 1.6;
     color: var(--text-color);
     font-size: 1rem;
+    font-family: 'Average Sans', sans-serif;
 }
 
 .project-description li::before {
@@ -261,6 +264,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     display: inline-block;
     transition: var(--transition);
+    font-family: 'Comme', sans-serif;
 }
 
 .see-all-repos a:hover {

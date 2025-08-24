@@ -10,6 +10,7 @@
 /* Custom Properties */
 :root {
     --primary-color: #2563eb;
+    --primary-hover: #1e40af;
     --primary-color-dark: #1e40af;
     --secondary-color: #1e293b;
     --background-color: #f8fafc;
@@ -50,9 +51,9 @@ body {
     transition: var(--transition);
 }
 
-h1, h2, h3, h4, h5, h6 {
+/*h1, h2, h3, h4, h5, h6 {
     font-family: 'EB Garamond', serif;
-}
+}*/
 
 /* Accessibility - Focus Styles */
 :focus-visible {

@@ -6,7 +6,7 @@ export class CarouselManager {
         this.options = {
             orientation: 'landscape', // default
             autoplay: true,
-            autoplayInterval: 1000,
+            autoplayInterval: 3000,
             ...options
         };
 

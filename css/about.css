@@ -9,4 +9,6 @@
     color: var(--text-muted);
     margin-bottom: 1rem;
     font-family: 'Average Sans', sans-serif;
+    line-height: 1.6;
+    font-size: 1.05rem;
 }
