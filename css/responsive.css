@@ -54,13 +54,13 @@
     }
 
     .carousel-landscape {
-        padding-top: 64.6875%; /* 15% increase from 56.25% */
+        padding-top: 71.15625%; /* 26.5% increase from 56.25% */
     }
 
     .carousel-portrait {
         width: 100%;
         max-width: none;
-        padding-top: 69%; /* 15% increase from 60% */
+        padding-top: 75.9%; /* 26.5% increase from 60% */
     }
 
     /* --- Skills --- */

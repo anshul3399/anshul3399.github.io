@@ -101,5 +101,47 @@ export class FooterManager {
                 builtWithElement.style.display = 'none';
             }
         }
+
+        // Update attributions
+        this.updateAttributions(footerConfig);
+    }
+
+    updateAttributions(footerConfig) {
+        const attributionsElement = document.querySelector('.footer-attributions');
+        if (!attributionsElement || !footerConfig.attributions) return;
+
+        attributionsElement.innerHTML = ''; // Clear existing attributions
+
+        const toggleButton = document.createElement('button');
+        toggleButton.classList.add('attributions-toggle');
+        toggleButton.innerHTML = `
+            <span class="attributions-title">Attribution(s)</span>
+            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        `;
+
+        const content = document.createElement('div');
+        content.classList.add('attributions-content');
+
+        footerConfig.attributions.forEach((attr, index) => {
+            const link = document.createElement('a');
+            link.href = attr.url;
+            link.textContent = attr.name;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            content.appendChild(link);
+
+            if (index < footerConfig.attributions.length - 1) {
+                const separator = document.createTextNode(', ');
+                content.appendChild(separator);
+            }
+        });
+
+        attributionsElement.appendChild(toggleButton);
+        attributionsElement.appendChild(content);
+
+        toggleButton.addEventListener('click', () => {
+            content.classList.toggle('show');
+            toggleButton.querySelector('.chevron-icon').classList.toggle('rotated');
+        });
     }
 }
