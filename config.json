@@ -21,7 +21,7 @@
   },
   "header": {
     "greeting": "Anshul Sharma",
-    "tagline": "**{This is currently a draft version of the site under development}**Developer"
+    "tagline": "***{This is currently a draft version of the site under development}**Developer"
   },
   "social_links": [
     {
@@ -73,10 +73,7 @@
           "url": "https://anshul3399.github.io",
           "title": "View Live Site"
         },
-        "domain": [
-          "Development",
-          "Automation"
-        ]
+        "domain": ["Development", "Automation"]
       },
       {
         "name": "Sanjeevni Pharmacy App",
@@ -92,9 +89,7 @@
           "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
           "title": "View Demo Video"
         },
-        "domain": [
-          "Digital Enablement for Local Businesses"
-        ]
+        "domain": ["Digital Enablement for Local Businesses"]
       },
       {
         "name": "Narayan Udyog Inventory Management App",
@@ -106,19 +101,22 @@
           "By automating inventory handling, the application helps improve decision-making, prevents stockouts or overstocking, and ultimately enhances overall customer satisfaction."
         ],
         "picture": "assets/projects/NarayanUdyog_App/NarayanUdyog_App.png",
-         "images": [
+        "images": [
           "assets/projects/NarayanUdyog_App/NarayanUdyog_1.jpg",
           "assets/projects/NarayanUdyog_App/NarayanUdyog_2.jpg",
-          "assets/projects/NarayanUdyog_App/NarayanUdyog_3.jpg"
+          "assets/projects/NarayanUdyog_App/NarayanUdyog_3.jpg",
+          "assets/projects/NarayanUdyog_App/NarayanUdyog_4.jpg",
+          "assets/projects/NarayanUdyog_App/NarayanUdyog_5.jpg",
+          "assets/projects/NarayanUdyog_App/NarayanUdyog_6.jpg",
+          "assets/projects/NarayanUdyog_App/NarayanUdyog_7.jpg",
+          "assets/projects/NarayanUdyog_App/NarayanUdyog_8.jpg"
         ],
         "orientation": "portrait",
         "link": {
-          "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
+          "url": "https://drive.google.com/file/d/1evfLHSz1PXkpbHsou3X-Glri8c7S5e84/view?usp=sharing",
           "title": "View Demo Video"
         },
-        "domain": [
-          "Digital Enablement for Local Businesses"
-        ]
+        "domain": ["Digital Enablement for Local Businesses"]
       },
       {
         "name": "MusikQ App",
@@ -138,13 +136,10 @@
         ],
         "orientation": "portrait",
         "link": {
-          "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
+          "url": "https://drive.google.com/file/d/1WAMYJBIyw_cuVCMe7p6mSMgXiKDiPPx-/view?usp=sharing",
           "title": "View Demo Video"
         },
-        "domain": [
-          "Scripting",
-          "Development"
-        ]
+        "domain": ["Scripting", "Development"]
       },
       {
         "name": "Stock Screening & Portfolio Management Scripts",
@@ -169,9 +164,7 @@
           "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
           "title": "View Demo Video"
         },
-        "domain": [
-          "Scripting"
-        ]
+        "domain": ["Scripting"]
       }
     ]
   },
@@ -274,7 +267,7 @@
             "name": "Google Colab",
             "logo": "assets/logos/tools/googleColab.svg"
           },
-           {
+          {
             "name": "Zapier",
             "logo": "assets/logos/tools/zapier.svg"
           },
@@ -348,7 +341,6 @@
     "built_with_text": "Built with ❤️ using vanilla JavaScript",
     "tagline": "Let's connect and build something amazing together!",
     "attributions": [
-      
       {
         "name": "Google Fonts",
         "url": "https://fonts.google.com/"
@@ -397,7 +389,6 @@
         "name": "Feather Icons",
         "url": "https://feathericons.com/"
       }
-
     ]
   }
 }
