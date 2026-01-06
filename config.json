@@ -21,7 +21,7 @@
   },
   "header": {
     "greeting": "Anshul Sharma",
-    "tagline": "***{This is currently a draft version of the site under development}**Developer"
+    "tagline": "Data Engineer ・ Automation ・ Scripting ・ App Developer ・ Finance"
   },
   "social_links": [
     {
@@ -32,7 +32,7 @@
     },
     {
       "name": "LinkedIn",
-      "url": "https://www.linkedin.com/in/anshul3399",
+      "url": "https://rebrand.ly/linkedin-portfolio-site",
       "icon": "linkedin",
       "required": true
     },
@@ -46,7 +46,7 @@
   "github_username": "anshul3399",
   "about": {
     "paragraphs": [
-      "Hey there! I'm Anshul—thanks for stopping by my little corner of the web. I enjoy building things on the web—whether it’s experimenting with new tools, putting together clean interfaces, or just trying to make stuff work better.",
+      "Hi, I’m Anshul. I build thoughtful web experiences while working with data-experimenting with tools, designing clean interfaces, and making systems more scalable and efficient.",
       "Here, you'll find a collection of my favorite projects, experiments, and what I’ve been learning lately.",
       "If anything catches your eye or you’re up for a collab, let’s chat! I'm always down to build cool stuff, learn something new, or just geek out over code."
     ]
@@ -55,41 +55,58 @@
     "title": "Featured Projects",
     "items": [
       {
-        "name": "Portfolio Website",
-        "date": "August, 2025",
+        "name": "MusikQ App",
+        "date": "January, 2025",
         "description": [
-          "A modern, responsive portfolio website built with vanilla JavaScript",
-          "Features dark/light mode, dynamic content loading, and GitHub integration",
-          "Fully configurable through JSON with automated README generation"
+          "Developed an Android application using Flutter, focused on managing playlists and discovering music across multiple genres.",
+          "Implemented Firebase Authentication to handle secure user sign-in and user-specific data access.",
+          "Integrated the YouTube Music API to fetch and enrich music metadata such as track details, artists, and genre information used within the application.",
+          "Used Google Sheets as a lightweight backend datastore to store and manage playlist and metadata information.",
+          "Leveraged the Notion API with a table view as an intermediate staging layer, integrating it with Google Sheets via Zapier to automate data synchronization and transformation workflows.",
+          "Implemented filtering and categorization logic to allow users to refine music exploration based on genre, artist, and other listening preferences."
         ],
-        "picture": "assets/projects/portfolio_website/portfolio_website_icon.png",
+        "picture": "assets/projects/MusikQ App/gramophone_resized.png",
         "images": [
-          "assets/projects/portfolio_website/Screenshot_1.png",
-          "assets/projects/portfolio_website/Screenshot_2.png",
-          "assets/projects/portfolio_website/Screenshot_3.png"
+          "assets/projects/MusikQ App/SongsList_Screen.jpg",
+          "assets/projects/MusikQ App/Filter_Screen.jpg",
+          "assets/projects/MusikQ App/FilterApplication.jpg",
+          "assets/projects/MusikQ App/PinView_Screen.jpg"
+        ],
+        "orientation": "portrait",
+        "link": {
+          "url": "https://rebrand.ly/MusikQ-app-demo-video",
+          "title": "View Demo Video"
+        },
+        "domain": ["Scripting", "Development"]
+      },
+      {
+        "name": "BI Publisher Reports for Oracle Banking Data Analytics",
+        "date": "March 2024 - July 2025",
+        "description": [
+          "Developed over 20+ BI Publisher reports for Oracle FLEXCUBE core banking modules, supporting daily and periodic reporting needs for operations and compliance teams.",
+          "Reports included account statements, transaction summaries, compliance reports, and operational dashboards.",
+          "Worked with large-scale banking data (millions of records per day) coming from multiple source systems and environments.",
+          "Extracted and prepared data using SQL and Python, ensuring consistency and accuracy before reporting.",
+          "Used Databricks and Spark to clean, transform, and aggregate high-volume data, improving report performance and reducing load on source systems.",
+          "Stored processed datasets in a separate reporting environment optimized for analytics and downstream consumption.",
+          "Collaborated with functional teams to understand reporting requirements and translate them into reliable data outputs."
+        ],
+        "picture": "assets/projects/BIPublisher_Reports/bi_publisher_logo.svg",
+        "images": [
+          "assets/projects/BIPublisher_Reports/bi_reports_list.png",
+          "assets/projects/BIPublisher_Reports/bi_reports_GLUSWISETR_list.png",
+          "assets/projects/BIPublisher_Reports/bi_reports_GLCASHPOS_summary.png",
+          "assets/projects/BIPublisher_Reports/bi_reports_GLCASHPOS_denominations.png",
+          "assets/projects/BIPublisher_Reports/bi_reports_GLUNATUH_list.png",
+          "assets/projects/BIPublisher_Reports/bi_reports_GLPOS_Summary.png",
+          "assets/projects/BIPublisher_Reports/bi_reports_GLPOS_Conventional.png"
         ],
         "orientation": "landscape",
         "link": {
-          "url": "https://anshul3399.github.io",
-          "title": "View Live Site"
+          "url": "https://rebrand.ly/OracleBI-Sample-Reports-Directory",
+          "title": "View Sample Reports"
         },
-        "domain": ["Development", "Automation"]
-      },
-      {
-        "name": "Sanjeevni Pharmacy App",
-        "date": "February, 2022",
-        "description": [
-          "This application was developed to support a local pharmacy business by simplifying patient and medicine data management.",
-          "It is a cross-platform solution, built using AppSheet with Google Sheets as the database backend.",
-          "The app enables the pharmacy store operator to efficiently record, access, and manage information about visiting patients and their prescribed medicines.",
-          "By providing quick, on-demand access to patient data, the application streamlines day-to-day operations, reduces manual effort, and enhances overall customer experience through faster and more reliable service."
-        ],
-        "picture": "assets/projects/Sanjeevani_Pharmacy_App/pharmacy_app_icon.png",
-        "link": {
-          "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
-          "title": "View Demo Video"
-        },
-        "domain": ["Digital Enablement for Local Businesses"]
+        "domain": ["Data Engineering"]
       },
       {
         "name": "Narayan Udyog Inventory Management App",
@@ -113,43 +130,45 @@
         ],
         "orientation": "portrait",
         "link": {
-          "url": "https://drive.google.com/file/d/1evfLHSz1PXkpbHsou3X-Glri8c7S5e84/view?usp=sharing",
+          "url": "https://rebrand.ly/narayan-udyog-inventory-app-demo-video",
+          "title": "View Demo Video"
+        },
+        "domain": ["Digital Enablement for Local Businesses"]
+      },
+
+      {
+        "name": "Sanjeevni Pharmacy App",
+        "date": "February, 2022",
+        "description": [
+          "This application was developed to support a local pharmacy business by simplifying patient and medicine data management.",
+          "It is a cross-platform solution, built using AppSheet with Google Sheets as the database backend.",
+          "The app enables the pharmacy store operator to efficiently record, access, and manage information about visiting patients and their prescribed medicines.",
+          "By providing quick, on-demand access to patient data, the application streamlines day-to-day operations, reduces manual effort, and enhances overall customer experience through faster and more reliable service."
+        ],
+        "picture": "assets/projects/Sanjeevani_Pharmacy_App/pharmacy_app_icon.png",
+        "images": [
+          "assets/projects/Sanjeevani_Pharmacy_App/Sanjeevni App_1.jpg",
+          "assets/projects/Sanjeevani_Pharmacy_App/Sanjeevni App_2.jpg",
+          "assets/projects/Sanjeevani_Pharmacy_App/Sanjeevni App_3.jpg",
+          "assets/projects/Sanjeevani_Pharmacy_App/Sanjeevni App_4.jpg"
+        ],
+        "orientation": "portrait",
+        "link": {
+          "url": "https://rebrand.ly/sanjeevani-app-demo-video",
           "title": "View Demo Video"
         },
         "domain": ["Digital Enablement for Local Businesses"]
       },
       {
-        "name": "MusikQ App",
-        "date": "January, 2025",
-        "description": [
-          "A Flutter app for managing and filtering music playlist.",
-          "Features vibrant theme, smooth animations, and a user-friendly interface",
-          "Powered by Google's Youtube Music API for fetching songs",
-          "Includes a demo video showcasing the app's functionality"
-        ],
-        "picture": "assets/projects/MusikQ App/gramophone_resized.png",
-        "images": [
-          "assets/projects/MusikQ App/SongsList_Screen.jpg",
-          "assets/projects/MusikQ App/Filter_Screen.jpg",
-          "assets/projects/MusikQ App/FilterApplication.jpg",
-          "assets/projects/MusikQ App/PinView_Screen.jpg"
-        ],
-        "orientation": "portrait",
-        "link": {
-          "url": "https://drive.google.com/file/d/1WAMYJBIyw_cuVCMe7p6mSMgXiKDiPPx-/view?usp=sharing",
-          "title": "View Demo Video"
-        },
-        "domain": ["Scripting", "Development"]
-      },
-      {
         "name": "Stock Screening & Portfolio Management Scripts",
         "date": "May, 2023",
         "description": [
-          "AppScripts for Google Sheets to automate stock screening and portfolio management",
-          "Includes features for fetching stock data, calculating financial ratios, and generating reports",
-          "Designed to help investors make informed decisions based on real-time data",
-          "Utilizes Google Finance API for live stock data retrieval",
-          "Provides a user-friendly interface for managing and analyzing stock portfolios"
+          "Developed a spreadsheet-driven portfolio tracking, alerting and stock screening solution using Google Sheets as the central data store, supporting structured analysis and automated data updates.",
+          "The app provides a single consolidated view for tracking investments and evaluating stocks.",
+          "Wrote Google Apps Script automations to fetch live market data using the Google Finance API, enabling dynamic updates of stock prices and portfolio metrics.",
+          "Implemented data processing logic to calculate financial ratios like (P/E, ROE, OPM etc.), track portfolio performance, and aggregate stock-level data for analysis.",
+          "Designed automated workflows for portfolio tracking and alerts, reducing manual monitoring and enabling timely insights via email notifications based on market movements.",
+          "Maintained a centralized spreadsheet with stock data refreshed every minute, automatically sorted based on daily performance metrics to support real-time portfolio tracking and screening."
         ],
         "picture": "assets/projects/StockScreeningPFMngnmnt_Scripts/StockScreening_PortfolioManagement_logo.svg",
         "images": [
@@ -161,10 +180,37 @@
         ],
         "orientation": "landscape",
         "link": {
-          "url": "https://drive.google.com/file/d/1OsM1d9NCtYC_O1w9djvCK-v3AKvnt21d/view?usp=sharing",
-          "title": "View Demo Video"
+          "url": "https://rebrand.ly/watchlist-equity-stocks",
+          "title": "View Live Site"
         },
         "domain": ["Scripting"]
+      },
+
+      {
+        "name": "Portfolio Website",
+        "date": "August, 2025",
+        "description": [
+          "Developed a static portfolio website using vanilla JavaScript, emphasizing simplicity and performance.",
+          "Implemented a JSON-based configuration layer to dynamically render site content, enabling easy updates through configuration changes.",
+          "Configured CI/CD automation using GitHub Actions, triggering automatic build and deployment workflows on each repository commit.",
+          "Added UI features such as dark/light mode switching and responsive layouts to enhance usability.",
+          "Deployed the website using GitHub Pages for reliable and cost-effective hosting."
+        ],
+        "picture": "assets/projects/portfolio_website/portfolio_website_icon.png",
+        "images": [
+          "assets/projects/portfolio_website/portfolio_website_1.png",
+          "assets/projects/portfolio_website/portfolio_website_2.png",
+          "assets/projects/portfolio_website/portfolio_website_3.png",
+          "assets/projects/portfolio_website/portfolio_website_4.png",
+          "assets/projects/portfolio_website/portfolio_website_5.png",
+          "assets/projects/portfolio_website/portfolio_website_6.png"
+        ],
+        "orientation": "landscape",
+        "link": {
+          "url": "https://rebrand.ly/portfolio-website-github",
+          "title": "View Live Site"
+        },
+        "domain": ["Development", "Automation"]
       }
     ]
   },
@@ -176,9 +222,14 @@
         "role": "Associate Consultant",
         "date": "June, 2023 - Present",
         "responsibilities": [
-          "Developed and customized 50+ core banking functionalities in Oracle Flexcube, leveraging PL/SQL, Java, JavaScript, and SQL to meet client-specific requirements and streamline automation processes.",
-          "Designed and implemented 20+ BI reports across key banking modules using Oracle BI Publisher, empowering data-driven decision-making and improving operational efficiency by 30%.",
-          "Integrated SonarQube for static code analysis, proactively identifying and resolving critical issues, which led to a 15% boost in code maintainability and a 20% reduction in production defects."
+          "Worked on customization and enhancement of Oracle FLEXCUBE core banking modules, contributing to multiple client-specific functionalities using PL/SQL, Java, JavaScript, and SQL as part of implementation team.",
+          "Developed and modified stored procedures, packages, and backend logic to support banking workflows such as account processing, validations, and system integrations.",
+          "Built and enhanced 20+ BI Publisher reports, supporting daily and periodic reporting needs for operations and compliance teams.",
+          "Implemented ETL workflows on Databricks using Spark SQL and DataFrames to handle ingestion, cleansing, and transformation of enterprise banking data.",
+          "Processed high-volume transactional data (tens to hundreds of millions of records), focusing on efficient batch execution, data quality checks, and consistency across downstream systems.",
+          "Supported data pipelines that enabled near real-time and batch reporting, improving the reliability and timeliness of analytics consumed by business and operations teams.",
+          "Integrated SonarQube into the development workflow to perform static code analysis, helping identify code quality issues early and improve maintainability before deployments.",
+          "Collaborated with functional consultants, QA teams, and client stakeholders to troubleshoot issues, validate fixes, and ensure smooth releases."
         ],
         "logo": "assets/logos/Oracle_logo.svg",
         "logo_dark": "assets/logos/Oracle_Logo.svg"
@@ -188,8 +239,12 @@
         "role": "Intern",
         "date": "June, 2022 - December, 2022",
         "responsibilities": [
-          "Contributed to 5+ innovative projects under the Martian Program, focusing on cloud technologies and automation scripting to streamline workflows, resulting in a reduction of 13 hours of manual effort per week and improved operational productivity.",
-          "Collaborated with cross-functional teams and benefited from mentorship, enhancing both technical expertise and professional development in a fast-paced, project-driven environment."
+          "Worked as part of the Martian Program, contributing to internal projects focused on cloud platforms and workflow automation.",
+          "Gained hands-on exposure to Microsoft Azure, supporting cloud-based setups and understanding deployment and automation concepts.",
+          "Assisted in developing automation scripts to collect and aggregate operational data, which was later used by teams for reporting and analytics purposes.",
+          "Wrote shell scripts that were executed on FTP servers to automate routine file-handling tasks, helping reduce repetitive manual work for the team.",
+          "Developed automated test execution scripts using Python and Selenium, configured to run via ChromeDriver for basic functional testing.",
+          "Collaborated closely with senior engineers and mentors, learning industry best practices, scripting standards, and team-based development workflows."
         ],
         "logo": "assets/logos/Persistent_Systems_Logo_Light.svg",
         "logo_dark": "assets/logos/Persistent_Systems_Logo_Dark.svg"
@@ -203,16 +258,12 @@
         "name": "Programming Languages & Technologies",
         "items": [
           {
-            "name": "JavaScript",
-            "logo": "assets/logos/languages/javascript.svg"
+            "name": "SQL",
+            "logo": "assets/logos/languages/sql.svg"
           },
           {
             "name": "Python",
             "logo": "assets/logos/languages/python.svg"
-          },
-          {
-            "name": "SQL",
-            "logo": "assets/logos/languages/sql.svg"
           },
           {
             "name": "NoSQL",
@@ -221,12 +272,56 @@
           {
             "name": "TypeScript",
             "logo": "assets/logos/languages/typescript.svg"
+          },
+          {
+            "name": "JavaScript",
+            "logo": "assets/logos/languages/javascript.svg"
+          },
+          {
+            "name": "Web Scraping",
+            "logo": "assets/logos/languages/webscraping.svg"
+          },
+          {
+            "name": "PL/SQL",
+            "logo": "assets/logos/languages/plsql.svg"
+          },
+          {
+            "name": "Java",
+            "logo": "assets/logos/languages/java.svg"
+          },
+          {
+            "name": "VBA",
+            "logo": "assets/logos/languages/vba.svg"
           }
         ]
       },
       {
         "name": "Tools & Platforms",
         "items": [
+          {
+            "name": "Databricks",
+            "logo": "assets/logos/tools/databricks.svg"
+          },
+          {
+            "name": "Apache Spark",
+            "logo": "assets/logos/tools/apache_spark.svg"
+          },
+          {
+            "name": "Google Colab",
+            "logo": "assets/logos/tools/googleColab.svg"
+          },
+          {
+            "name": "Cognos Analytics",
+            "logo": "assets/logos/tools/cognos-analytics.svg"
+          },
+          {
+            "name": "Google Looker Studio",
+            "logo": "assets/logos/tools/googleLookerStudio.svg"
+          },
+          {
+            "name": "Oracle Analytics Server",
+            "logo": "assets/logos/tools/oracle-analytics-server.svg"
+          },
           {
             "name": "Git",
             "logo": "assets/logos/tools/git.svg"
@@ -252,21 +347,10 @@
             "logo": "assets/logos/tools/airflow.svg"
           },
           {
-            "name": "Apache Spark",
-            "logo": "assets/logos/tools/apache_spark.svg"
-          },
-          {
             "name": "MongoDB",
             "logo": "assets/logos/tools/mongodb.svg"
           },
-          {
-            "name": "Cognos Analytics",
-            "logo": "assets/logos/tools/cognos-analytics.svg"
-          },
-          {
-            "name": "Google Colab",
-            "logo": "assets/logos/tools/googleColab.svg"
-          },
+
           {
             "name": "Zapier",
             "logo": "assets/logos/tools/zapier.svg"
@@ -282,6 +366,10 @@
           {
             "name": "PostgreSQL",
             "logo": "assets/logos/tools/postgresql.svg"
+          },
+          {
+            "name": "Excel/Spreadsheets",
+            "logo": "assets/logos/tools/excel.svg"
           }
         ]
       },
@@ -342,8 +430,32 @@
     "tagline": "Let's connect and build something amazing together!",
     "attributions": [
       {
-        "name": "Google Fonts",
-        "url": "https://fonts.google.com/"
+        "name": "Oracle",
+        "url": "https://www.oracle.com/in/legal/logos/"
+      },
+      {
+        "name": "Google",
+        "url": "https://about.google/brand-resource-center/logos-list/"
+      },
+      {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks"
+      },
+      {
+        "name": "IBM",
+        "url": "https://www.ibm.com/brand/experience-guides/developer/brand/logo/#ibm-developer-logotype"
+      },
+      {
+        "name": "Cisco",
+        "url": "https://www.cisco.com/c/en/us/about/brand-center/logo-usage-guidelines.html"
+      },
+      {
+        "name": "Databricks",
+        "url": "https://brandfolder.com/databricks/press-kit?o=AND&q=section%3A+%22Databricks+Logos%22+"
+      },
+      {
+        "name": "Persistent Systems",
+        "url": "https://www.persistent.com/wp-content/uploads/2021/03/Persistent-Brand-Guidelines.pdf"
       },
       {
         "name": "Coursera",
@@ -354,40 +466,24 @@
         "url": "https://www.appsheet.com/Content/img/material/appsheet_rebrand_logo.svg"
       },
       {
-        "name": "IBM",
-        "url": "https://www.ibm.com/brand/experience-guides/developer/brand/logo/#ibm-developer-logotype"
-      },
-      {
-        "name": "Microsoft",
-        "url": "https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks"
-      },
-      {
-        "name": "Google",
-        "url": "https://about.google/brand-resource-center/logos-list/"
-      },
-      {
-        "name": "Oracle",
-        "url": "https://www.oracle.com/in/legal/logos/"
-      },
-      {
-        "name": "Cisco",
-        "url": "https://www.cisco.com/c/en/us/about/brand-center/logo-usage-guidelines.html"
-      },
-      {
-        "name": "Persistent Systems",
-        "url": "https://www.persistent.com/wp-content/uploads/2021/03/Persistent-Brand-Guidelines.pdf"
+        "name": "Google Fonts",
+        "url": "https://fonts.google.com/"
       },
       {
         "name": "Brand Logos: SVG Repo",
         "url": "https://www.svgrepo.com/"
       },
       {
-        "name": "Brand Logos: Wikimedia Commons",
+        "name": "Wikimedia Commons",
         "url": "https://commons.wikimedia.org/wiki/Main_Page"
       },
       {
         "name": "Feather Icons",
         "url": "https://feathericons.com/"
+      },
+      {
+        "name": "Icons8",
+        "url": "https://icons8.com/"
       }
     ]
   }
