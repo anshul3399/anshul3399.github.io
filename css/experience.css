@@ -50,9 +50,8 @@
 }
 
 .experience-item.expanded .experience-content {
+    /* Padding for expanded state — height is handled dynamically in JS */
     padding: 0 1.5rem 1.5rem;
-    max-height: 500px;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .experience-content ul {

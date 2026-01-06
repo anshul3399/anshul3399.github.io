@@ -329,7 +329,96 @@ export class SectionManager {
 
     // Toggle experience accordion
     toggleExperienceAccordion(experienceItem) {
-        experienceItem.classList.toggle('expanded');
+        const content = experienceItem.querySelector('.experience-content');
+        if (!content) {
+            experienceItem.classList.toggle('expanded');
+            return;
+        }
+
+        const isExpanded = experienceItem.classList.contains('expanded');
+
+        if (isExpanded) {
+            // collapse: animate from current height to 0
+            const currentHeight = content.scrollHeight;
+            content.style.maxHeight = currentHeight + 'px';
+            // force a repaint so the starting maxHeight is applied
+            // then set to 0 to trigger transition
+            requestAnimationFrame(() => {
+                content.style.transition = 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                content.style.maxHeight = '0';
+                content.style.padding = '0';
+            });
+
+            experienceItem.classList.remove('expanded');
+
+            // cleanup after transition
+            const onTransitionEnd = (e) => {
+                if (e.propertyName === 'max-height') {
+                    content.style.maxHeight = '';
+                    content.removeEventListener('transitionend', onTransitionEnd);
+                }
+            };
+            content.addEventListener('transitionend', onTransitionEnd);
+        } else {
+            // expand: set padding first so content has space, then set maxHeight to scrollHeight
+            content.style.padding = '0 1.5rem 1.5rem';
+            // ensure display/overflow are correct
+            content.style.overflow = 'hidden';
+            // measure height after padding applied
+            const targetHeight = content.scrollHeight;
+            content.style.maxHeight = '0';
+            // force repaint
+            requestAnimationFrame(() => {
+                content.style.transition = 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                content.style.maxHeight = targetHeight + 'px';
+            });
+
+            experienceItem.classList.add('expanded');
+
+            // after expansion, clear maxHeight so content can grow naturally
+            const onTransitionEnd = (e) => {
+                if (e.propertyName === 'max-height') {
+                    content.style.maxHeight = 'none';
+                    content.style.overflow = '';
+                    content.removeEventListener('transitionend', onTransitionEnd);
+                }
+            };
+            content.addEventListener('transitionend', onTransitionEnd);
+
+            // Fallback: if transitionend doesn't fire (rare), ensure we clear maxHeight after 600ms
+            const fallbackTimer = setTimeout(() => {
+                if (experienceItem.classList.contains('expanded')) {
+                    content.style.maxHeight = 'none';
+                    content.style.overflow = '';
+                }
+            }, 600);
+
+            // If images inside content load after expansion, they can change height — handle that
+            const imgs = Array.from(content.querySelectorAll('img'));
+            const onImgLoad = () => {
+                if (experienceItem.classList.contains('expanded')) {
+                    // ensure fully expanded
+                    content.style.maxHeight = 'none';
+                    content.style.overflow = '';
+                }
+            };
+            imgs.forEach(img => {
+                if (img.complete) return; // already loaded
+                img.addEventListener('load', onImgLoad);
+                img.addEventListener('error', onImgLoad);
+            });
+
+            // cleanup helper to remove listeners and timer when collapsing
+            const cleanupAfter = () => {
+                clearTimeout(fallbackTimer);
+                imgs.forEach(img => {
+                    img.removeEventListener('load', onImgLoad);
+                    img.removeEventListener('error', onImgLoad);
+                });
+            };
+            // attach cleanup when transition ends
+            content.addEventListener('transitionend', cleanupAfter, { once: true });
+        }
     }
 
     // Toggle project accordion
