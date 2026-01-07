@@ -125,3 +125,5 @@
 [data-theme="dark"] .company-logo .dark-mode-logo {
     display: block;
 }
+
+/* (Removed permalink styles — title click now handles permalinks) */

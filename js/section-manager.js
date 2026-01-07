@@ -4,6 +4,12 @@ import { CarouselManager } from './carousel-manager.js';
 export class SectionManager {
     constructor(configManager) {
         this.configManager = configManager;
+        // counters for stable unique ids
+        this.projectCounter = 0;
+        this.experienceCounter = 0;
+
+        // handle incoming hashes
+        window.addEventListener('hashchange', () => this._handleHashChange());
     }
 
     // Toggle section visibility based on feature flags
@@ -61,6 +67,10 @@ export class SectionManager {
                 githubProjectsTitle.textContent = config.github_projects.title;
             }
         }
+
+        // handle any hash navigation after rendering
+        // delay slightly to allow DOM paint
+        setTimeout(() => this._handleHashChange(), 40);
     }
 
     // Update about section
@@ -176,6 +186,10 @@ export class SectionManager {
     createProjectItem(project) {
         const projectItem = document.createElement('div');
         projectItem.className = 'project-item';
+
+        // assign stable unique id
+        const id = `project-${this._slugify(project.name)}-${++this.projectCounter}`;
+        projectItem.id = id;
         
         const descriptionHtml = Array.isArray(project.description) 
             ? project.description.map(desc => `<li>${desc}</li>`).join('')
@@ -216,7 +230,27 @@ export class SectionManager {
             </div>
             ${project.images && project.images.length > 0 ? '<div class="project-carousel-wrapper" style="display: none;"></div>' : ''}
         `;
-        
+
+        // Make the title act as a permalink/copy trigger: copy URL, set hash, open and scroll
+        const titleEl = projectItem.querySelector('.project-title');
+        if (titleEl) {
+            titleEl.style.cursor = 'pointer';
+            titleEl.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const url = `${window.location.origin}${window.location.pathname}#${id}`;
+                this._copyToClipboard(url).then(() => this._showCopyToast('Link copied to clipboard'))
+                    .catch(() => this._showCopyToast('Link copied'));
+                // set hash and open project visuals if any
+                window.location.hash = id;
+                const toggle = projectItem.querySelector('.carousel-toggle');
+                const wrapper = projectItem.querySelector('.project-carousel-wrapper');
+                if (wrapper && toggle && toggle.getAttribute('aria-expanded') !== 'true') {
+                    toggle.click();
+                }
+                projectItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        }
+
         // Setup carousel if images exist
         if (project.images && project.images.length > 0) {
             const carouselWrapper = projectItem.querySelector('.project-carousel-wrapper');
@@ -231,7 +265,7 @@ export class SectionManager {
                 toggleBtn.classList.toggle('active');
             });
         }
-        
+
         return projectItem;
     }
 
@@ -283,11 +317,15 @@ export class SectionManager {
     createExperienceItem(job) {
         const experienceItem = document.createElement('div');
         experienceItem.className = 'experience-item';
-        
+
+        // assign stable unique id
+        const id = `experience-${this._slugify(job.company + '-' + job.role)}-${++this.experienceCounter}`;
+        experienceItem.id = id;
+
         const responsibilitiesHtml = Array.isArray(job.responsibilities)
             ? job.responsibilities.map(resp => `<li>${resp}</li>`).join('')
             : `<li>${job.responsibilities}</li>`;
-        
+
         let logoHtml = '';
         if (job.logo || job.logo_dark) {
             logoHtml = `
@@ -297,7 +335,7 @@ export class SectionManager {
                 </div>
             `;
         }
-        
+
         experienceItem.innerHTML = `
             <div class="experience-header">
                 <div class="experience-header-content">
@@ -317,13 +355,34 @@ export class SectionManager {
                 </ul>
             </div>
         `;
-        
-        // Add click event listener for accordion functionality
+
+        // Make the title act as a permalink/copy trigger: copy URL, set hash, expand and scroll
         const header = experienceItem.querySelector('.experience-header');
-        header.addEventListener('click', () => {
+        const headerContent = experienceItem.querySelector('.experience-header-content');
+        const titleElExp = experienceItem.querySelector('.experience-header-content h3');
+        if (titleElExp) {
+            titleElExp.style.cursor = 'pointer';
+            titleElExp.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const url = `${window.location.origin}${window.location.pathname}#${id}`;
+                this._copyToClipboard(url).then(() => this._showCopyToast('Link copied to clipboard'))
+                    .catch(() => this._showCopyToast('Link copied'));
+                window.location.hash = id;
+                if (!experienceItem.classList.contains('expanded')) {
+                    this.toggleExperienceAccordion(experienceItem);
+                }
+                experienceItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        }
+
+        // Add click event listener for accordion functionality (title click handled separately)
+        const headerClickable = experienceItem.querySelector('.experience-header');
+        headerClickable.addEventListener('click', (ev) => {
+            // if the click was inside the title we already handled it
+            if (ev.target.closest('.experience-header-content h3')) return;
             this.toggleExperienceAccordion(experienceItem);
         });
-        
+
         return experienceItem;
     }
 
@@ -424,6 +483,112 @@ export class SectionManager {
     // Toggle project accordion
     toggleProjectAccordion(projectItem) {
         projectItem.classList.toggle('expanded');
+    }
+
+    // simple slug helper for ids
+    _slugify(text) {
+        return (text || '')
+            .toString()
+            .toLowerCase()
+            .replace(/\s+/g, '-')           // spaces to hyphens
+            .replace(/[^\w\-]+/g, '')       // remove invalid chars
+            .replace(/\-\-+/g, '-')         // collapse dashes
+            .replace(/^-+/, '')              // trim start dash
+            .replace(/-+$/, '');             // trim end dash
+    }
+
+    // copy text to clipboard (returns Promise)
+    _copyToClipboard(text) {
+        if (!text) return Promise.reject(new Error('No text'));
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            return navigator.clipboard.writeText(text);
+        }
+        return new Promise((resolve, reject) => {
+            // fallback for older browsers
+            try {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'absolute';
+                ta.style.left = '-9999px';
+                document.body.appendChild(ta);
+                ta.select();
+                const ok = document.execCommand('copy');
+                ta.remove();
+                ok ? resolve() : reject(new Error('execCommand failed'));
+            } catch (err) {
+                reject(err);
+            }
+        });
+    }
+
+    // show a small temporary toast to indicate copy success
+    _showCopyToast(message = 'Copied') {
+        try {
+            const existing = document.querySelector('.copy-toast');
+            if (existing) {
+                existing.remove();
+            }
+            const toast = document.createElement('div');
+            toast.className = 'copy-toast';
+            // include a subtle link icon and the message text
+            toast.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07l-1.41 1.41"></path>
+                    <path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.1a5 5 0 0 0 7.07 7.07l1.41-1.41"></path>
+                </svg>
+                <span class="copy-toast-text">${message}</span>
+            `;
+            // accessibility
+            toast.setAttribute('role', 'status');
+            toast.setAttribute('aria-live', 'polite');
+            document.body.appendChild(toast);
+            // trigger show (CSS handles animation)
+            requestAnimationFrame(() => toast.classList.add('show'));
+            setTimeout(() => {
+                toast.classList.remove('show');
+                // allow animation to finish then remove
+                setTimeout(() => toast.remove(), 300);
+            }, 1800);
+        } catch (e) {
+            // swallow errors — non-critical
+            console.warn('Toast failed', e);
+        }
+    }
+
+    // Open a block by id: expand if needed and scroll into view
+    _openBlockById(id) {
+        if (!id) return;
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        // if it's a project: trigger carousel toggle if exists
+        if (el.classList.contains('project-item')) {
+            const toggle = el.querySelector('.carousel-toggle');
+            const wrapper = el.querySelector('.project-carousel-wrapper');
+            if (wrapper && toggle && toggle.getAttribute('aria-expanded') !== 'true') {
+                // open using existing handler
+                toggle.click();
+            }
+        }
+
+        // if it's experience, expand accordion
+        if (el.classList.contains('experience-item')) {
+            if (!el.classList.contains('expanded')) {
+                this.toggleExperienceAccordion(el);
+            }
+        }
+
+        // scroll into view
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Handle URL hash on load / change
+    _handleHashChange() {
+        const hash = (window.location.hash || '').replace('#', '');
+        if (!hash) return;
+        // open block after small delay to ensure DOM rendered
+        setTimeout(() => this._openBlockById(hash), 40);
     }
 
     // Update skills section dynamically

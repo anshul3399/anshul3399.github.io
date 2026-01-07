@@ -272,6 +272,8 @@
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* (Removed permalink button styles — title click now handles permalinks) */
+
 .project-domain-chip::after {
     content: '';
     position: absolute;
