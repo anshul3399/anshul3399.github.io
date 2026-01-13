@@ -233,8 +233,8 @@
           "Integrated SonarQube into the development workflow to perform static code analysis, helping identify code quality issues early and improve maintainability before deployments.",
           "Collaborated with functional consultants, QA teams, and client stakeholders to troubleshoot issues, validate fixes, and ensure smooth releases."
         ],
-        "logo": "assets/logos/Oracle_logo.svg",
-        "logo_dark": "assets/logos/Oracle_Logo.svg"
+        "logo": "assets/logos/Oracle_Logo_Light.svg",
+        "logo_dark": "assets/logos/Oracle_Logo_Dark.svg"
       },
       {
         "company": "Persistent Systems Ltd.",
