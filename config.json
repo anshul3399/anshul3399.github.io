@@ -99,7 +99,9 @@
           "assets/projects/BIPublisher_Reports/bi_reports_GLCASHPOS_denominations.png",
           "assets/projects/BIPublisher_Reports/bi_reports_GLUNATUH_list.png",
           "assets/projects/BIPublisher_Reports/bi_reports_GLPOS_Summary.png",
-          "assets/projects/BIPublisher_Reports/bi_reports_GLPOS_Conventional.png"
+          "assets/projects/BIPublisher_Reports/bi_reports_GLPOS_Conventional.png",
+          "assets/projects/BIPublisher_Reports/bi_reports_Interface FLEXCUBE.png",
+          "assets/projects/BIPublisher_Reports/bi_reports_CCPC report query_snapshot.png"
         ],
         "orientation": "landscape",
         "link": {
@@ -388,7 +390,7 @@
           },
           {
             "name": "Oracle Cloud Infrastructure Foundations",
-            "url": "https://www.credly.com/badges/7cf7e3c9-c1eb-4f7d-8606-f01c21d9c509/public_url",
+            "url": "https://coursera.org/share/34652c93d587707b2e3fd043b1d7adf3",
             "logo": "assets/logos/certifications/oracle-logo.svg"
           },
           {
@@ -399,6 +401,11 @@
           {
             "name": "Containers & Kubernetes Essentials",
             "url": "https://www.credly.com/badges/d6f9d5bb-3749-4dd8-8371-31950d361991/public_url",
+            "logo": "assets/logos/certifications/coursera-logo.svg"
+          },
+          {
+            "name": "Oracle SQL Performance Tuning",
+            "url": "https://coursera.org/share/2fce9b75bdd20985ce860fd14fa1b6ea",
             "logo": "assets/logos/certifications/coursera-logo.svg"
           },
           {
