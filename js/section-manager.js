@@ -8,8 +8,9 @@ export class SectionManager {
         this.projectCounter = 0;
         this.experienceCounter = 0;
 
-        // handle incoming hashes
+        // handle incoming hashes and history navigation
         window.addEventListener('hashchange', () => this._handleHashChange());
+        window.addEventListener('popstate', () => this._handleHashChange());
     }
 
     // Toggle section visibility based on feature flags
@@ -65,6 +66,21 @@ export class SectionManager {
             const githubProjectsTitle = document.querySelector('.projects-on-github h2');
             if (githubProjectsTitle) {
                 githubProjectsTitle.textContent = config.github_projects.title;
+                if (!githubProjectsTitle.dataset.permalinkAttached) {
+                    const gitSection = document.querySelector('.projects-on-github');
+                    const sectionId = `section-${this._slugify(githubProjectsTitle.textContent)}`;
+                    if (gitSection) gitSection.id = sectionId;
+                    githubProjectsTitle.style.cursor = 'pointer';
+                    githubProjectsTitle.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const url = `${window.location.origin}${window.location.pathname}#${sectionId}`;
+                        this._copyToClipboard(url).then(() => this._showCopyToast('Link copied to clipboard'))
+                            .catch(() => this._showCopyToast('Link copied'));
+                        history.pushState(null, '', `#${sectionId}`);
+                        this._openBlockById(sectionId);
+                    });
+                    githubProjectsTitle.dataset.permalinkAttached = 'true';
+                }
             }
         }
 
@@ -90,6 +106,20 @@ export class SectionManager {
         
         if (titleElement) {
             titleElement.textContent = this.configManager.getSectionTitle('projects');
+            if (!titleElement.dataset.permalinkAttached) {
+                const sectionId = `section-${this._slugify(titleElement.textContent)}`;
+                projectsSection.id = sectionId;
+                titleElement.style.cursor = 'pointer';
+                titleElement.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const url = `${window.location.origin}${window.location.pathname}#${sectionId}`;
+                    this._copyToClipboard(url).then(() => this._showCopyToast('Link copied to clipboard'))
+                        .catch(() => this._showCopyToast('Link copied'));
+                    history.pushState(null, '', `#${sectionId}`);
+                    this._openBlockById(sectionId);
+                });
+                titleElement.dataset.permalinkAttached = 'true';
+            }
         }
         
         // --- Domain Chips ---
@@ -235,19 +265,19 @@ export class SectionManager {
         const titleEl = projectItem.querySelector('.project-title');
         if (titleEl) {
             titleEl.style.cursor = 'pointer';
-            titleEl.addEventListener('click', (e) => {
+                titleEl.addEventListener('click', (e) => {
                 e.stopPropagation();
                 const url = `${window.location.origin}${window.location.pathname}#${id}`;
                 this._copyToClipboard(url).then(() => this._showCopyToast('Link copied to clipboard'))
                     .catch(() => this._showCopyToast('Link copied'));
-                // set hash and open project visuals if any
-                window.location.hash = id;
+                // update URL without causing immediate browser jump
+                history.pushState(null, '', `#${id}`);
                 const toggle = projectItem.querySelector('.carousel-toggle');
                 const wrapper = projectItem.querySelector('.project-carousel-wrapper');
                 if (wrapper && toggle && toggle.getAttribute('aria-expanded') !== 'true') {
                     toggle.click();
                 }
-                projectItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                this._scrollToElement(titleEl);
             });
         }
 
@@ -276,6 +306,20 @@ export class SectionManager {
         
         if (titleElement) {
             titleElement.textContent = this.configManager.getSectionTitle('experience');
+            if (!titleElement.dataset.permalinkAttached) {
+                const sectionId = `section-${this._slugify(titleElement.textContent)}`;
+                experienceSection.id = sectionId;
+                titleElement.style.cursor = 'pointer';
+                titleElement.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const url = `${window.location.origin}${window.location.pathname}#${sectionId}`;
+                    this._copyToClipboard(url).then(() => this._showCopyToast('Link copied to clipboard'))
+                        .catch(() => this._showCopyToast('Link copied'));
+                    history.pushState(null, '', `#${sectionId}`);
+                    this._openBlockById(sectionId);
+                });
+                titleElement.dataset.permalinkAttached = 'true';
+            }
         }
         
         // Clear existing experience items
@@ -367,11 +411,11 @@ export class SectionManager {
                 const url = `${window.location.origin}${window.location.pathname}#${id}`;
                 this._copyToClipboard(url).then(() => this._showCopyToast('Link copied to clipboard'))
                     .catch(() => this._showCopyToast('Link copied'));
-                window.location.hash = id;
+                history.pushState(null, '', `#${id}`);
                 if (!experienceItem.classList.contains('expanded')) {
                     this.toggleExperienceAccordion(experienceItem);
                 }
-                experienceItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                this._scrollToElement(titleElExp);
             });
         }
 
@@ -579,8 +623,68 @@ export class SectionManager {
             }
         }
 
-        // scroll into view
-        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // scroll into view using header-aware helper
+        // If this is a section anchor (section-...), scroll to its H2 heading when available
+        let target = el;
+        try {
+            if (el.id && el.id.startsWith('section-')) {
+                const heading = el.querySelector('h2');
+                if (heading) target = heading;
+            } else {
+                // for project/experience items prefer the inner title if present
+                const innerTitle = el.querySelector('h3') || el.querySelector('.project-title');
+                if (innerTitle) target = innerTitle;
+            }
+        } catch (err) {
+            target = el;
+        }
+
+        // special-case: for section anchors (section-...), position heading at the very top
+        try {
+            if (el.id && el.id.startsWith('section-')) {
+                const heading = el.querySelector('h2') || el;
+                const top = heading.getBoundingClientRect().top + window.pageYOffset;
+                this._smoothScrollTo(top, 1200);
+                return;
+            }
+        } catch (e) {
+            // ignore and fallback to default
+        }
+
+        // small delay to let layout settle after expanding content
+        setTimeout(() => this._scrollToElement(target), 60);
+    }
+
+    // Smooth-scroll an element into view accounting for a fixed header
+    _scrollToElement(el, extraOffset = 12) {
+        if (!el) return;
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.offsetHeight : 0;
+        const top = el.getBoundingClientRect().top + window.pageYOffset - (headerHeight + extraOffset);
+        this._smoothScrollTo(top, 1200);
+    }
+
+    // Smooth-scroll helper with easing (duration in ms)
+    _smoothScrollTo(targetY, duration = 1200) {
+        const startY = window.pageYOffset;
+        const distance = targetY - startY;
+        const startTime = performance.now();
+
+        const easeInOutCubic = (t) => t < 0.5
+            ? 4 * t * t * t
+            : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+        const step = (now) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = easeInOutCubic(progress);
+            window.scrollTo(0, Math.round(startY + distance * eased));
+            if (elapsed < duration) {
+                requestAnimationFrame(step);
+            }
+        };
+
+        requestAnimationFrame(step);
     }
 
     // Handle URL hash on load / change
@@ -598,6 +702,20 @@ export class SectionManager {
         
         if (titleElement) {
             titleElement.textContent = this.configManager.getSectionTitle('skills');
+            if (!titleElement.dataset.permalinkAttached) {
+                const sectionId = `section-${this._slugify(titleElement.textContent)}`;
+                skillsSection.id = sectionId;
+                titleElement.style.cursor = 'pointer';
+                titleElement.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const url = `${window.location.origin}${window.location.pathname}#${sectionId}`;
+                    this._copyToClipboard(url).then(() => this._showCopyToast('Link copied to clipboard'))
+                        .catch(() => this._showCopyToast('Link copied'));
+                    history.pushState(null, '', `#${sectionId}`);
+                    this._openBlockById(sectionId);
+                });
+                titleElement.dataset.permalinkAttached = 'true';
+            }
         }
         
         const skillsGrid = skillsSection.querySelector('.skills-grid');

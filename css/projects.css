@@ -137,7 +137,8 @@
     font-weight: 500;
     font-size: 0.875rem;
     transition: background-color 0.2s ease;
-    font-family: 'Comme', sans-serif;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400; /* use Jost regular 400 */
 }
 
 .project-link:hover {
@@ -264,7 +265,8 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     display: inline-block;
     transition: var(--transition);
-    font-family: 'Comme', sans-serif;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400; /* use Jost regular 400 */
 }
 
 .see-all-repos a:hover {

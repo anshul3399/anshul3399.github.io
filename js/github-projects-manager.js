@@ -17,21 +17,39 @@ export class GitHubProjectsManager {
         try {
             // Clear loading message
             this.projectsContainer.innerHTML = '';
-            
-            // Fetch repositories with "featured" topic using GitHub REST API
-            const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
-            
+
+            // Build request headers. Request topics using preview accept header.
+            const headers = {
+                'Accept': 'application/vnd.github.mercy-preview+json'
+            };
+
+            // If a token is provided in config (local/dev usage), use it to increase rate limits
+            if (config.github_token) {
+                headers['Authorization'] = `token ${config.github_token}`;
+            }
+
+            // Fetch repositories
+            const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`, {
+                headers
+            });
+
             if (!response.ok) {
+                // Handle rate-limit / forbidden specially
+                if (response.status === 403) {
+                    this.projectsContainer.innerHTML = `
+                        <div class="loading">Unable to load GitHub projects — API rate limit or access denied.</div>
+                    `;
+                    console.error('Error loading GitHub projects: 403 Forbidden - likely rate limit exceeded');
+                    return;
+                }
                 throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
             }
-            
+
             const repos = await response.json();
-            
-            // Filter repositories that have "featured" topic
-            const featuredRepos = repos.filter(repo => 
-                repo.topics && repo.topics.includes('featured')
-            );
-            
+
+            // Filter repositories that have "featured" topic — topics available when using the preview header
+            const featuredRepos = repos.filter(repo => Array.isArray(repo.topics) && repo.topics.includes('featured'));
+
             if (featuredRepos.length > 0) {
                 this.renderProjects(featuredRepos, username);
             } else {
