@@ -370,6 +370,10 @@
             "logo": "assets/logos/tools/postgresql.svg"
           },
           {
+            "name": "Cassandra",
+            "logo": "assets/logos/tools/cassandra.svg"
+          },
+          {
             "name": "Excel/Spreadsheets",
             "logo": "assets/logos/tools/excel.svg"
           }
@@ -406,6 +410,11 @@
           {
             "name": "Oracle SQL Performance Tuning",
             "url": "https://coursera.org/share/2fce9b75bdd20985ce860fd14fa1b6ea",
+            "logo": "assets/logos/certifications/coursera-logo.svg"
+          },
+          {
+            "name": "Microsoft Azure - Data Factory",
+            "url": "https://coursera.org/share/6ecbe8120fff4bc093544e2f10f3e767",
             "logo": "assets/logos/certifications/coursera-logo.svg"
           },
           {
