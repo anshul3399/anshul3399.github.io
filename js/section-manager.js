@@ -602,57 +602,24 @@ export class SectionManager {
 
     // Open a block by id: expand if needed and scroll into view
     _openBlockById(id) {
+        console.log("_openBlockById called with id:", id);
         if (!id) return;
+
         const el = document.getElementById(id);
-        if (!el) return;
-
-        // if it's a project: trigger carousel toggle if exists
-        if (el.classList.contains('project-item')) {
-            const toggle = el.querySelector('.carousel-toggle');
-            const wrapper = el.querySelector('.project-carousel-wrapper');
-            if (wrapper && toggle && toggle.getAttribute('aria-expanded') !== 'true') {
-                // open using existing handler
-                toggle.click();
-            }
+        if (!el) {
+            console.warn("Element not found for id:", id);
+            return;
         }
 
-        // if it's experience, expand accordion
-        if (el.classList.contains('experience-item')) {
-            if (!el.classList.contains('expanded')) {
-                this.toggleExperienceAccordion(el);
-            }
-        }
+        console.log("Element found:", el);
 
-        // scroll into view using header-aware helper
-        // If this is a section anchor (section-...), scroll to its H2 heading when available
-        let target = el;
-        try {
-            if (el.id && el.id.startsWith('section-')) {
-                const heading = el.querySelector('h2');
-                if (heading) target = heading;
-            } else {
-                // for project/experience items prefer the inner title if present
-                const innerTitle = el.querySelector('h3') || el.querySelector('.project-title');
-                if (innerTitle) target = innerTitle;
-            }
-        } catch (err) {
-            target = el;
-        }
+        // Adjust scroll position to ensure the title moves to the top of the screen
+        const top = el.getBoundingClientRect().top + window.pageYOffset;
+        console.log("Scrolling to position:", top);
+        this._smoothScrollTo(top, 1200);
 
-        // special-case: for section anchors (section-...), position heading at the very top
-        try {
-            if (el.id && el.id.startsWith('section-')) {
-                const heading = el.querySelector('h2') || el;
-                const top = heading.getBoundingClientRect().top + window.pageYOffset;
-                this._smoothScrollTo(top, 1200);
-                return;
-            }
-        } catch (e) {
-            // ignore and fallback to default
-        }
-
-        // small delay to let layout settle after expanding content
-        setTimeout(() => this._scrollToElement(target), 60);
+        // Ensure the hash in the URL updates without causing additional scrolling
+        history.replaceState(null, null, `#${id}`);
     }
 
     // Smooth-scroll an element into view accounting for a fixed header

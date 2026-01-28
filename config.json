@@ -32,7 +32,7 @@
     },
     {
       "name": "LinkedIn",
-      "url": "https://rebrand.ly/linkedin-portfolio-site",
+      "url": "https://minily.org/linkedin-profile-pf",
       "icon": "linkedin",
       "required": true
     },
@@ -74,7 +74,7 @@
         ],
         "orientation": "portrait",
         "link": {
-          "url": "https://rebrand.ly/MusikQ-app-demo-video",
+          "url": "https://minily.org/pf-musikq-app-demo-video",
           "title": "View Demo Video"
         },
         "domain": ["Scripting", "Development"]
@@ -105,7 +105,7 @@
         ],
         "orientation": "landscape",
         "link": {
-          "url": "https://rebrand.ly/OracleBI-Sample-Reports-Directory",
+          "url": "https://minily.org/pf-oraclebi-project-sample-reports-gdrive-directory",
           "title": "View Sample Reports"
         },
         "domain": ["Data Engineering"]
@@ -132,7 +132,7 @@
         ],
         "orientation": "portrait",
         "link": {
-          "url": "https://rebrand.ly/narayan-udyog-inventory-app-demo-video",
+          "url": "https://minily.org/narayan-udyog-inventory-app-demo-video",
           "title": "View Demo Video"
         },
         "domain": ["Digital Enablement for Local Businesses"]
@@ -156,7 +156,7 @@
         ],
         "orientation": "portrait",
         "link": {
-          "url": "https://rebrand.ly/sanjeevani-app-demo-video",
+          "url": "https://minily.org/sanjeevani-app-demo-video",
           "title": "View Demo Video"
         },
         "domain": ["Digital Enablement for Local Businesses"]
@@ -182,7 +182,7 @@
         ],
         "orientation": "landscape",
         "link": {
-          "url": "https://rebrand.ly/watchlist-equity-stocks",
+          "url": "https://minily.org/watchlist-equity-stocks",
           "title": "View Live Site"
         },
         "domain": ["Scripting"]
@@ -209,7 +209,7 @@
         ],
         "orientation": "landscape",
         "link": {
-          "url": "https://rebrand.ly/portfolio-website-github",
+          "url": "https://anshul3399.github.io/",
           "title": "View Live Site"
         },
         "domain": ["Development", "Automation"]
