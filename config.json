@@ -309,6 +309,14 @@
             "logo": "assets/logos/tools/apache_spark.svg"
           },
           {
+            "name": "Apache Spark",
+            "logo": "assets/logos/tools/snowflake.svg"
+          },
+          {
+            "name": "Apache Spark",
+            "logo": "assets/logos/tools/microsoftFabric.svg"
+          },
+          {
             "name": "Google Colab",
             "logo": "assets/logos/tools/googleColab.svg"
           },
