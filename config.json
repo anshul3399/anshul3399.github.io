@@ -55,31 +55,6 @@
     "title": "Featured Projects",
     "items": [
       {
-        "name": "MusikQ App",
-        "date": "January, 2025",
-        "description": [
-          "Developed an Android application using Flutter, focused on managing playlists and discovering music across multiple genres.",
-          "Implemented Firebase Authentication to handle secure user sign-in and user-specific data access.",
-          "Integrated the YouTube Music API to fetch and enrich music metadata such as track details, artists, and genre information used within the application.",
-          "Used Google Sheets as a lightweight backend datastore to store and manage playlist and metadata information.",
-          "Leveraged the Notion API with a table view as an intermediate staging layer, integrating it with Google Sheets via Zapier to automate data synchronization and transformation workflows.",
-          "Implemented filtering and categorization logic to allow users to refine music exploration based on genre, artist, and other listening preferences."
-        ],
-        "picture": "assets/projects/MusikQ App/gramophone_resized.png",
-        "images": [
-          "assets/projects/MusikQ App/SongsList_Screen.jpg",
-          "assets/projects/MusikQ App/Filter_Screen.jpg",
-          "assets/projects/MusikQ App/FilterApplication.jpg",
-          "assets/projects/MusikQ App/PinView_Screen.jpg"
-        ],
-        "orientation": "portrait",
-        "link": {
-          "url": "https://minily.org/pf-musikq-app-demo-video",
-          "title": "View Demo Video"
-        },
-        "domain": ["Scripting", "Development"]
-      },
-      {
         "name": "BI Publisher Reports for Oracle Banking Data Analytics",
         "date": "March 2024 - July 2025",
         "description": [
@@ -109,6 +84,31 @@
           "title": "View Sample Reports"
         },
         "domain": ["Data Engineering"]
+      },
+      {
+        "name": "MusikQ App",
+        "date": "January, 2025",
+        "description": [
+          "Developed an Android application using Flutter, focused on managing playlists and discovering music across multiple genres.",
+          "Implemented Firebase Authentication to handle secure user sign-in and user-specific data access.",
+          "Integrated the YouTube Music API to fetch and enrich music metadata such as track details, artists, and genre information used within the application.",
+          "Used Google Sheets as a lightweight backend datastore to store and manage playlist and metadata information.",
+          "Leveraged the Notion API with a table view as an intermediate staging layer, integrating it with Google Sheets via Zapier to automate data synchronization and transformation workflows.",
+          "Implemented filtering and categorization logic to allow users to refine music exploration based on genre, artist, and other listening preferences."
+        ],
+        "picture": "assets/projects/MusikQ App/gramophone_resized.png",
+        "images": [
+          "assets/projects/MusikQ App/SongsList_Screen.jpg",
+          "assets/projects/MusikQ App/Filter_Screen.jpg",
+          "assets/projects/MusikQ App/FilterApplication.jpg",
+          "assets/projects/MusikQ App/PinView_Screen.jpg"
+        ],
+        "orientation": "portrait",
+        "link": {
+          "url": "https://minily.org/pf-musikq-app-demo-video",
+          "title": "View Demo Video"
+        },
+        "domain": ["Scripting", "Development"]
       },
       {
         "name": "Narayan Udyog Inventory Management App",
@@ -309,12 +309,24 @@
             "logo": "assets/logos/tools/apache_spark.svg"
           },
           {
-            "name": "Apache Spark",
+            "name": "Snowflake",
             "logo": "assets/logos/tools/snowflake.svg"
           },
           {
-            "name": "Apache Spark",
+            "name": "Microsoft Fabric",
             "logo": "assets/logos/tools/microsoftFabric.svg"
+          },
+          {
+            "name": "Microsoft Azure",
+            "logo": "assets/logos/tools/azure.svg"
+          },
+          {
+            "name": "AWS",
+            "logo": "assets/logos/tools/aws.svg"
+          },
+          {
+            "name": "GCP",
+            "logo": "assets/logos/tools/gcp.svg"
           },
           {
             "name": "Google Colab",
@@ -337,12 +349,8 @@
             "logo": "assets/logos/tools/git.svg"
           },
           {
-            "name": "Firebase",
-            "logo": "assets/logos/tools/firebase.svg"
-          },
-          {
-            "name": "Flutter",
-            "logo": "assets/logos/tools/flutter.svg"
+            "name": "Airflow",
+            "logo": "assets/logos/tools/airflow.svg"
           },
           {
             "name": "Docker",
@@ -352,10 +360,7 @@
             "name": "Kubernetes",
             "logo": "assets/logos/tools/kubernetes.svg"
           },
-          {
-            "name": "Airflow",
-            "logo": "assets/logos/tools/airflow.svg"
-          },
+          
           {
             "name": "MongoDB",
             "logo": "assets/logos/tools/mongodb.svg"
@@ -370,16 +375,20 @@
             "logo": "assets/logos/tools/appsheets.svg"
           },
           {
-            "name": "Microsoft Azure",
-            "logo": "assets/logos/tools/azure.svg"
-          },
-          {
             "name": "PostgreSQL",
             "logo": "assets/logos/tools/postgresql.svg"
           },
           {
             "name": "Cassandra",
             "logo": "assets/logos/tools/cassandra.svg"
+          },
+          {
+            "name": "Firebase",
+            "logo": "assets/logos/tools/firebase.svg"
+          },
+          {
+            "name": "Flutter",
+            "logo": "assets/logos/tools/flutter.svg"
           },
           {
             "name": "Excel/Spreadsheets",
@@ -390,6 +399,11 @@
       {
         "name": "Certifications & Publications",
         "items": [
+          {
+            "name": "Microsoft Certified: Fabric Data Engineer Associate (DP-700)",
+            "url": "https://learn.microsoft.com/en-us/users/anshulsharma-8023/credentials/923a89c43ee90ce1",
+            "logo": "assets/logos/certifications/microsoft-logo.svg"
+          },
           {
             "name": "IBM Data Engineering Professional Certificate (V3)",
             "url": "https://www.credly.com/badges/a6bd32ad-6bfb-4339-b1a9-1c42b411f56e",
